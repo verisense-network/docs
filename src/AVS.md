@@ -4,7 +4,7 @@ The term [AVS(Actively Validated Services)](https://docs.eigenlayer.xyz/eigenlay
 
 Verisense provides developers with a complete SDK and toolset, making it easier and more efficient to build distributed applications based on AVS. By using Verisense, developers can focus on the core functionality of their applications without having to worry about the underlying verification and monitoring mechanisms.
 
-![](../assets/avs-overview.jpg)
+![](../assets/avs-overview.png)
 
 The key concepts of Verisense include:
 
