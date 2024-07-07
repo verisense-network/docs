@@ -7,4 +7,6 @@ Here's a simple walkthrough of how Shamir's Secret Sharing can be used for thres
 4.	Distribute the Shares: The shares of the private key are then distributed among the participants. The key property here is that any $t$ shares (points) are enough to reconstruct the polynomial (and hence discover the secret), whereas $t-1$ or fewer shares reveal no information about the secret.
 5.	Reconstruct the Secret: When the need arises to use the private key (secret), any $t$ participants come together and combine their shares using polynomial interpolation (for example, via Lagrange interpolation) to reconstruct the polynomial and discover the constant term, which is the secret.
 $$\mathcal{P}(x)=\sum^{t-1}_{i=0}\mathcal{s}_i\prod_{j\neq i}\frac{x-s_j}{s_i-s_j}$$
+It is worth noting that all polynomials are defined over the ring of polynomials in $(\mathbb{Z}/p\mathbb{Z})[X]/X^{t}$ and the Lagrange interpolation still holds.
+
 This way, the private key (secret) is never explicitly revealed to any single party and no single party can access the secret alone. This is particularly useful in managing the risks associated with key management in cryptographic systems. It provides a balance between accessibility (through the threshold number of participants) and security (no single point of failure).
