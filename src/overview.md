@@ -1,0 +1,5 @@
+# Overview of Verisense
+
+Verisense Network represents a pioneering layer-one omnichain restaking protocol. Engineered with a modular architecture, it integrates a Substrate/Polkadot SDK with Byzantine Fault Tolerant (BFT) consensus mechanism, FHE-enabled lightweight consensus approach, and a WASM execution environment. This design fosters seamless interactions for restakers, streamlines integration for developers, and establishes a decentralized governance framework fueled by a PoS network of restaked validator operators, who may also opt-in to operate nodes for Actively Validated Services (AVS). Moreover, Verisense introduces innovative concepts like Validation-as-a-Service (VaaS), allowing off-chain services to pool crypto-economic security and extend it to one another. By facilitating the consolidation and expansion of crypto-economic security across off-chain systems, Verisense lays the groundwork for an open marketplace of decentralized trust.
+
+Inspired by the trustboost theory and EigenLayer, the Verisense network aims to build an omnichain based Validation-as-a-Service layer across with a two-layer hybrid-collateral security and restructured ROIs.
