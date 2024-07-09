@@ -1,12 +1,14 @@
-# AVS on Verisense
+# AVS 
 
-The term [AVS(Actively Validated Services)](https://docs.eigenlayer.xyz/eigenlayer/avs-guides/avs-developer-guide#what-is-an-avs) is originally proposed by Eigenlayer. But Eigenlayer doesn't provide such a standard template or framework to develop AVS.
+The concept of DApp development can refer to both smart contract development and application chain (a dedicated blockchain system developed for a specific large-scale application) development. Over the past decade, smart contract development has brought significant progress to blockchain applications, but people have also gradually realized the many limitations of the smart contract model: the cost is determined by the host chain, the speed is relatively low, and the programming model is restrictive. The barrier to entry for application chain development is relatively higher, and it requires finding independent verification nodes, making the cost of application chains not low either. Moreover, due to the relatively low degree of decentralization and the dependence on high cross-chain costs, application chains find it difficult to achieve natural compatibility with mainstream public chains.
+
+The term [AVS(Actively Validated Services)](https://docs.eigenlayer.xyz/eigenlayer/avs-guides/avs-developer-guide#what-is-an-avs) is originally proposed by Eigenlayer. It is a new paradigm of DApp development but Eigenlayer doesn't provide such a standard template or framework to develop AVS.
 
 Verisense provides developers with a complete SDK and toolset, making it easier and more efficient to build distributed applications based on AVS. By using Verisense, developers can focus on the core functionality of their applications without having to worry about the underlying verification and monitoring mechanisms.
 
 ![](https://raw.githubusercontent.com/verisense-network/verisense-docs/master/assets/avs-overview.png)
 
-The key concepts of Verisense include:
+The key concepts of Verisense AVS include:
 
 1. Actor Model: In Verisense, the AVS system adopts the common distributed systems concept of the Actor model. However, Verisense uses the term "Nucleus" instead of "Actor" since Verisense is a decentralized system. Each Nucleus corresponds to a DApp, and developers need to use the nucleus-core library and other tools to develop and compile the Nucleus into a WebAssembly (WASM) binary file. As a decentralized Actor model, the Nucleus has the ability to actively send messages to other Nuclei or even external systems. This allows the Verisense AVS to break free from the limitations of blockchain systems, which are often passive in nature.
 

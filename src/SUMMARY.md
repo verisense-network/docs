@@ -4,6 +4,7 @@
 - [Architecutre](./arch.md)
 - [VaaS](./VaaS/vaas.md)
   - [AVS](./VaaS/AVS.md)
+  - [Lightweight Consensus for AVS](./VaaS/Monadring.md)
 - [FHE](./overview_of_fhe.md)
   - [Introduction](./FHE/Introduction.md)
     - [Basics](./FHE/FHE_basic.md)
