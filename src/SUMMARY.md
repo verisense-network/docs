@@ -2,8 +2,8 @@
 
 - [Overview](./overview.md)
 - [Architecutre](./arch.md)
-- [VaaS](./vaas.md)
-  - [AVS](./AVS.md)
+- [VaaS](./VaaS/vaas.md)
+  - [AVS](./VaaS/AVS.md)
 - [FHE](./overview_of_fhe.md)
   - [Introduction](./FHE/Introduction.md)
   - [Basics](./FHE/FHE_basic.md)
