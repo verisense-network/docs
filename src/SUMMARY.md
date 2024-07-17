@@ -1,7 +1,7 @@
 # Verisense
 
 - [Overview](./overview.md)
-- [Architecutre](./arch.md)
+- [Architecture](./arch.md)
 - [VaaS](./VaaS/vaas.md)
   - [AVS](./VaaS/AVS.md)
   - [Lightweight Consensus for AVS](./VaaS/Monadring.md)

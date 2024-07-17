@@ -8,6 +8,6 @@ The architecture of Verisense is shown as follow:
 
 We can dig into it deeper.
 
-![](https://raw.githubusercontent.com/verisense-network/verisense-docs/master/assets/arch02.svg)
+![](https://raw.githubusercontent.com/verisense-network/verisense-docs/master/assets/arch03.svg)
 
 
