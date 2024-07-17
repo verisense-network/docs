@@ -1,12 +1,12 @@
 ## Threshold Key Sharing based on Shamir  Secret Sharing
 Shamir's Secret Sharing is an algorithm in cryptography devised by Adi Shamir. It's a form of secret sharing, where a secret is divided into parts, giving each participant its own unique part. The unique feature of the algorithm is the minimal amount of parts, or shares, needed to reconstruct the secret.
 Here's a simple walkthrough of how Shamir's Secret Sharing can be used for threshold private key sharing:
-1. Choose the Threshold: Define the threshold number $t$ below which knowing $t$ points gives no information about the secret, but $t$ points yields the secret.
-2.	Generate a Polynomial: Generate a random polynomial of degree $t-1$ with the constant term being the secret (private key) to be shared. i.e. $$\mathcal{P}(x)=a_0+a_1x+a_2x^2+\ldots+a_{t-1}x^{t-1}$$
-3.	Create Shares: Evaluate the polynomial at different points to get $n$ shares, where $n$ is the total number of participants. Each participant is given one share, which is a point on the polynomial. i.e. $$\mathcal{s}_i=\mathcal{P}(x_i)$$
-4.	Distribute the Shares: The shares of the private key are then distributed among the participants. The key property here is that any $t$ shares (points) are enough to reconstruct the polynomial (and hence discover the secret), whereas $t-1$ or fewer shares reveal no information about the secret.
-5.	Reconstruct the Secret: When the need arises to use the private key (secret), any $t$ participants come together and combine their shares using polynomial interpolation (for example, via Lagrange interpolation) to reconstruct the polynomial and discover the constant term, which is the secret.
-$$\mathcal{P}(x)=\sum^{t-1}_{i=0}\mathcal{s}_i\prod_{j\neq i}\frac{x-s_j}{s_i-s_j}$$
-It is worth noting that all polynomials are defined over the ring of polynomials in $(\mathbb{Z}/p\mathbb{Z})[X]/X^{t}$ and the Lagrange interpolation still holds.
+1. Choose the Threshold: Define the threshold number \\(t\\) below which knowing \\(t\\) points gives no information about the secret, but \\( t \\) points yields the secret.
+2.	Generate a Polynomial: Generate a random polynomial of degree \\(t-1\\) with the constant term being the secret (private key) to be shared. i.e. \\[ f(x)=a_0+a_1x+a_2x^2+\ldots+a_{t-1}x^{t-1} \\]
+3.	Create Shares: Evaluate the polynomial at different points to get \\(n\\) shares, where \\(n\\) is the total number of participants. Each participant is given one share, which is a point on the polynomial. i.e. \\[\mathcal{s}_i=f(x_i)\\]
+4.	Distribute the Shares: The shares of the private key are then distributed among the participants. The key property here is that any \\(t\\) shares (points) are enough to reconstruct the polynomial (and hence discover the secret), whereas \\(t-1\\) or fewer shares reveal no information about the secret.
+5.	Reconstruct the Secret: When the need arises to use the private key (secret), any \\(t\\) participants come together and combine their shares using polynomial interpolation (for example, via Lagrange interpolation) to reconstruct the polynomial and discover the constant term, which is the secret.
+\\[ f(x)=\sum^{t-1}_{i=0} s_i \prod_j \frac{x-s_j}{s_i-s_j} \\]
+It is worth noting that all polynomials are defined over the ring of polynomials in \\((\mathbb{Z}/p\mathbb{Z})[X]/X^{t}\\) and the Lagrange interpolation still holds.
 
 This way, the private key (secret) is never explicitly revealed to any single party and no single party can access the secret alone. This is particularly useful in managing the risks associated with key management in cryptographic systems. It provides a balance between accessibility (through the threshold number of participants) and security (no single point of failure).
