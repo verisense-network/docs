@@ -4,4 +4,4 @@ The chapter about the basic principles of FHE introduces the current development
 - [Basic Principles of FHE](./FHE_basic.md)
 - [Scenarios of Game Theory](./Game_Theory_in_Blockchain.md)
 - [Threshold Key Sharing](./Threshold_key_sharing.md)
-- [Practical FHE Applications in Verisense](./FHE_for_Verisense.md)
+<!-- - [Practical FHE Applications in Verisense](./FHE_for_Verisense.md) -->
