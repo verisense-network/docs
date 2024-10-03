@@ -17,3 +17,4 @@
   - [Data Warehouse](./8fish/8fish_data_warehouse.md)
   - [SDK](./8fish/8fish_sdk.md)
   - [App Deployment](./8fish/8fish_app_deployment.md)
+- [Developer Guides](./developer_guides/basic.md)
