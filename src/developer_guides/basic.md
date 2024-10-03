@@ -42,7 +42,7 @@ vrs-core-sdk = { git = "git@github.com:verisense-network/verisense.git", package
 parity-scale-codec = { version = "3.6", features = ["derive"] }
 ```
 
-Now, let's develop a basic AVS for simply storing a user:
+Now, let's develop a simple AVS for naively storing users:
 
 ```
 use parity_scale_codec::{Decode, Encode};
@@ -84,7 +84,7 @@ AVS on Verisense has 2 types of endpoint to access:
 
 Both require that the parameters and returning type of the function to impl `Encode + Decode`.
 
-The `add_user` uses the `storage::serach` and `storage::put` functions provided by the sdk to lookup the maximum user id and then assign a new id to the incoming user. And the `get_user` simply retrieve it.
+The `add_user` uses the `storage::search` and `storage::put` functions provided by the sdk to lookup the maximum user id and then assign a new id to the incoming user. And the `get_user` simply retrieve it.
 
 To compile the AVS, run:
 ```
