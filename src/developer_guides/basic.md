@@ -26,7 +26,7 @@ Let's create a hello-avs project:
 cargo new --lib hello-avs
 ```
 
-To develop a hello-world AVS, add `vrs-core-sdk` and `parity-scale-codec` as dependencies. In the `Cargo.toml`, add:
+To develop a hello-world AVS, you need to indicate the target to `cdylib` and add `vrs-core-sdk` and `parity-scale-codec` as dependencies. Modify the `Cargo.toml`:
 
 ```
 [package]
@@ -39,6 +39,7 @@ crate-type = ["cdylib"]
 
 [dependencies]
 vrs-core-sdk = { git = "git@github.com:verisense-network/verisense.git", package = "vrs-core-sdk" }
+parity-scale-codec = { version = "3.6", features = ["derive"] }
 ```
 
 Now, let's develop a basic AVS for simply storing a user:
@@ -79,7 +80,7 @@ In the top of the source code, we involved two crates:
 
 AVS on Verisense has 2 types of endpoint to access:
 - `get`: for read only. Modifying data or initiating external HTTP requests will cause panic.
-- `post`: allow modifying the AVS state, initiating external HTTP requests and setting timmers.
+- `post`: allow modifying the AVS state, initiating external HTTP requests and setting timers.
 
 Both require that the parameters and returning type of the function to impl `Encode + Decode`.
 
@@ -107,11 +108,8 @@ Then download the verisense cli tool `vrx`:
 
 ```
 cargo install --git https://github.com/verisense-network/vrs-cli.git
-
 vrx deploy hello-avs/target/wasm32-unknown-unknown/release/hello_avs.wasm
 ```
-
-
 
 ## What's next
 For more advanced topics, see:
