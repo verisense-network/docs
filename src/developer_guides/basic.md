@@ -104,12 +104,48 @@ After a while, run the Verisense node in dev mode in the name of well-known vali
 target/release/verisense --dev --alice
 ```
 
-Then download the verisense cli tool `vrx`:
+Then install the verisense cli tool `vrx`:
 
 ```
 cargo install --git https://github.com/verisense-network/vrs-cli.git
-vrx deploy hello-avs/target/wasm32-unknown-unknown/release/hello_avs.wasm
 ```
+
+The command below shows how to create an AVS using the test account `Alice` which already hold some tokens:
+```
+vrx create-nucleus --name hello_avs --capacity 1 --alice
+```
+The executing result is something like:
+```
+Nucleus created.
+  id: 5FsXfPrUDqq6abYccExCTUxyzjYaaYTr5utLx2wwdBv1m8R8
+  name: hello_avs
+  capacity: 1
+```
+The `id` represents the AVS account, then we deploy our wasm blob using the `id`:
+```
+vrx deploy --name hello_avs --wasm-path ../hello-avs/target/wasm32-unknown-unknown/release/hello_avs.wasm --nucleus-id 5FsXfPrUDqq6abYccExCTUxyzjYaaYTr5utLx2wwdBv1m8R8 --alice
+```
+If everything works fine, it will return something like:
+```
+Digest: 0xff878e546806da8b13f02765ea84f616963abcfdcac196ba3ea9f3f5d94b661e
+Peer ID: 12D3KooWCz46orfkSfaahJqkph1bQqXU9t7ct98YQKTaDepNE6du
+Transaction submitted: "0x0bc7d23b900a880e5274582755fc1a6c17df9453b0aa43f4cc382efc0bf1ec39"
+```
+
+Now it's time to request our AVS. Let's call `add_user` first.
+
+```
+curl localhost:9944 -H 'Content-Type: application/json' -XPOST -d '{"jsonrpc":"2.0", "id":"whatever", "method":"nucleus_post", "params": ["5FsXfPrUDqq6abYccExCTUxyzjYaaYTr5utLx2wwdBv1m8R8", "add_user", "000000000000000014416c696365"]}'
+```
+The networking component follows the standard JSON-RPC specification, and all `post` and `get` methods share a same endpoint seperately. In the `add_user` case, the method is `nucleus_post` and so all other `post` methods.
+
+The first parameter is the `nucleus_id` we are requesting, the second indicates the function name in the source code which is `add_user`. While the third is an encoded bytes whose value is: ```User {0, "Alice"}```. You can find different implementations for various programming languages.
+
+Calling `get_user` is similar, we just need to change the method and parameter:
+```
+curl localhost:9944 -H 'Content-Type: application/json' -XPOST -d '{"jsonrpc":"2.0", "id":"whatever", "method":"nucleus_post", "params": ["5FsXfPrUDqq6abYccExCTUxyzjYaaYTr5utLx2wwdBv1m8R8", "get_user", "0100000000000000"]}'
+```
+
 
 ## What's next
 For more advanced topics, see:
