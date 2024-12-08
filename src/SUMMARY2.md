@@ -1,22 +1,21 @@
-# Verisense
+# Verisense Docs
 
-- [What](./overview.md)
-  - [What is the problems](./restaking.md)
-  - [What is light app](./restaking.md)
-  - [What is Verisense](./restaking.md)
-  - [How Verisense solve problems](./restaking.md)
-
-
-- [Why](./overview.md)
-  - [Why not smart contract chain](./restaking.md)
-  - [Why not appchain](./restaking.md)
-  - [Why Monadring](./restaking.md)
-  - [Why FHE](./restaking.md)
-  - [Why Restaking](./restaking.md)
+- [What](./what.md)
+  - [What is the problems](./problems.md)
+  - [What is light app](./lightapp.md)
+  - [What is Verisense](./verisense.md)
+  - [How Verisense solves problems](./howsolve.md)
 
 
-- [Network Overview](./overview.md)
-  - [Overview](./overview.md)
+- [Why](./why.md)
+  - [Why not smart contract chain](./whynotsmartcontractchain.md)
+  - [Why not appchain](./whynotappchain.md)
+  - [Why Monadring](./whymonadring.md)
+  - [Why FHE](./whyfhe.md)
+  - [Why Restaking](./whyrestaking.md)
+
+
+- [Network Overview](./networkoverview.md)
   - [Architecture](./arch.md)
   - [VaaS](./VaaS/vaas.md)
     - [AVS](./VaaS/AVS.md)
