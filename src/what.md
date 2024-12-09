@@ -1,13 +1,12 @@
 # What
 
-In this section, we will describe the problems on applications of real world usecase. 
+In this section, we will outline the challenges faced by real-world applications and their practical use cases.
 
-And then we will propose a new concept: light app. 
+Next, we will introduce an innovative concept: the light app.
 
-And then we will introduce Verisense, and how shall Verisense try to solve thos problems.
- 
+Finally, we will present Verisense, exploring how it addresses these challenges effectively. 
 
-  - [What is the problems](./problems.md)
-  - [What is light app](./lightapp.md)
+  - [What is the Problems](./problems.md)
+  - [What is Light App](./lightapp.md)
   - [What is Verisense](./verisense.md)
-  - [How Verisense solve problems](./howsolve.md)
+  - [How Verisense Solves Problems](./howsolve.md)

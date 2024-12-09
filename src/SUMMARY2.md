@@ -1,21 +1,21 @@
 # Verisense Docs
 
 - [What](./what.md)
-  - [What is the problems](./problems.md)
-  - [What is light app](./lightapp.md)
+  - [What is the Problems](./problems.md)
+  - [What is Light App](./lightapp.md)
   - [What is Verisense](./verisense.md)
-  - [How Verisense solves problems](./howsolve.md)
+  - [How Verisense Solves Problems](./howsolve.md)
 
 
 - [Why](./why.md)
-  - [Why not smart contract chain](./whynotsmartcontractchain.md)
-  - [Why not appchain](./whynotappchain.md)
+  - [Why not Smart Contract Chain](./whynotsmartcontractchain.md)
+  - [Why not Appchain](./whynotappchain.md)
   - [Why Monadring](./whymonadring.md)
   - [Why FHE](./whyfhe.md)
   - [Why Restaking](./whyrestaking.md)
 
 
-- [Network Overview](./networkoverview.md)
+- [Network Overview](./overview.md)
   - [Architecture](./arch.md)
   - [VaaS](./VaaS/vaas.md)
     - [AVS](./VaaS/AVS.md)
