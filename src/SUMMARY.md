@@ -34,9 +34,10 @@
 
 - [Getting Started](./overview.md)
   - [Developer Guides](./developer_guides/basic.md)
-  - [Making http requests]()
-  - [Setting a timer]()
+  - [Making http requests](./http_requests.md)
+  - [Setting a timer](./timer.md)
+  - [KV Storage](./kv_storage.md)
   - [Deriving external addresses to hold external assets]()
   - [Signing an external signature]()
-  - [Demo: developing a decentralized forum]()
+  - [Demo: developing a decentralized forum](demo_veforum.md)
 

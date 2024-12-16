@@ -38,7 +38,7 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-vrs-core-sdk = { git = "git@github.com:verisense-network/verisense.git", package = "vrs-core-sdk" }
+vrs-core-sdk = { git = "https://github.com/verisense-network/verisense", package = "vrs-core-sdk" }
 parity-scale-codec = { version = "3.6", features = ["derive"] }
 ```
 
@@ -97,7 +97,7 @@ cargo build --release --target wasm32-unknown-unknown
 Now let't deploy our first AVS to the local node. First, install the recent release version of the Verisense node:
 
 ```
-git clone git@github.com:verisense-network/verisense.git
+git clone https://github.com/verisense-network/verisense
 cd verisense && cargo build --release
 ```
 
@@ -115,7 +115,7 @@ cargo install --git https://github.com/verisense-network/vrs-cli.git
 
 The command below shows how to create an AVS using the test account `Alice` which already hold some tokens:
 ```
-vrx create-nucleus --name hello_avs --capacity 1 --alice
+vrx create-nucleus --name hello_avs --capacity 1
 ```
 The executing result is something like:
 ```
@@ -126,7 +126,7 @@ Nucleus created.
 ```
 The `id` represents the AVS account, then we deploy our wasm blob using the `id`:
 ```
-vrx deploy --name hello_avs --wasm-path ../hello-avs/target/wasm32-unknown-unknown/release/hello_avs.wasm --nucleus-id 5FsXfPrUDqq6abYccExCTUxyzjYaaYTr5utLx2wwdBv1m8R8 --alice
+vrx deploy --name hello_avs --wasm-path ../target/wasm32-unknown-unknown/release/veavs.wasm --nucleus-id 5FsXfPrUDqq6abYccExCTUxyzjYaaYTr5utLx2wwdBv1m8R8  --version 1
 ```
 If everything works fine, it will return something like:
 ```
@@ -140,13 +140,13 @@ Now it's time to request our AVS. Let's call `add_user` first.
 ```
 curl localhost:9944 -H 'Content-Type: application/json' -XPOST -d '{"jsonrpc":"2.0", "id":"whatever", "method":"nucleus_post", "params": ["5FsXfPrUDqq6abYccExCTUxyzjYaaYTr5utLx2wwdBv1m8R8", "add_user", "000000000000000014416c696365"]}'
 ```
-The networking component follows the standard JSON-RPC specification, and all `post` and `get` methods share a same endpoint seperately. In the `add_user` case, the method is `nucleus_post` and so all other `post` methods.
+The networking component follows the standard JSON-RPC specification, and all `post` and `get` methods share a same endpoint separately. In the `add_user` case, the method is `nucleus_post` and so all other `post` methods.
 
 The first parameter is the `nucleus_id` we are requesting, the second indicates the function name in the source code which is `add_user`. While the third is an encoded bytes whose value is: ```User {0, "Alice"}```. You can find different implementations for various programming languages.
 
 Calling `get_user` is similar, we just need to change the method and parameter:
 ```
-curl localhost:9944 -H 'Content-Type: application/json' -XPOST -d '{"jsonrpc":"2.0", "id":"whatever", "method":"nucleus_post", "params": ["5FsXfPrUDqq6abYccExCTUxyzjYaaYTr5utLx2wwdBv1m8R8", "get_user", "0100000000000000"]}'
+curl localhost:9944 -H 'Content-Type: application/json' -XPOST -d '{"jsonrpc":"2.0", "id":"whatever", "method":"nucleus_get", "params": ["5FsXfPrUDqq6abYccExCTUxyzjYaaYTr5utLx2wwdBv1m8R8", "get_user", "0100000000000000"]}'
 ```
 
 
