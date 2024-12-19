@@ -8,6 +8,8 @@ Verisense has a full set of API on KV storage. Let's look at it.
 
 #### put
 
+Put a value into database via a key.
+
 ```
 pub fn put(key: impl AsRef<[u8]>, value: impl AsRef<[u8]>) -> CallResult<()> 
 ```
@@ -30,6 +32,8 @@ pub fn add_user(mut u: User) -> Result<(), String> {
 **Note**: `storage::put()` can only be used in the function decorated by `#[post]`.
 
 #### del
+
+Delete a value from database via a key.
 
 ```
 pub fn del(key: impl AsRef<[u8]>) -> CallResult<()>
@@ -54,6 +58,8 @@ pub fn delete_user() -> Result<(), String> {
 
 
 #### get
+
+Get a value from database via a key.
 
 ```
 pub fn get(key: impl AsRef<[u8]>) -> CallResult<Option<Vec<u8>>> {

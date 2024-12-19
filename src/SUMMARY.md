@@ -39,5 +39,5 @@
   - [KV Storage](./kv_storage.md)
   - [Deriving external addresses to hold external assets]()
   - [Signing an external signature]()
-  - [Demo: developing a decentralized forum](demo_veforum.md)
+  - [Demo: developing a decentralized forum](./demo_veforum.md)
 
