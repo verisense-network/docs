@@ -5,11 +5,11 @@ Verisense Network seizes this market opportunity by proposing an innovative mech
 
 ## What is Verisense Network?
 
-Verisense is the world’s first FHE-enabled (Fully Homomorphic Encryption) VaaS (Validation-as-a-Service) network designed to plug and play with any restaking layers. Our goal is to serve AVS in variety (chain-natured, non-chain-natured, and hybrid) and onboard diversified paying AVS clients, a sector currently underserved yet ultimately critical to win the restaking. Here’s what this entails:
+Verisense is the world’s first FHE-enabled (Fully Homomorphic Encryption) VaaS (Validation-as-a-Service) network designed to plug and play with any restaking layers. Our goal is to serve AVS in variety (chain-natured, non-chain-natured, and hybrid) and onboard diversified paying AVS clients, a sector currently underserved yet ultimately critical to win in the restaking. Here’s what this entails:
 
 ### Serving Diverse AVS Clients:
 
-- AVS clients varies in many formats, broadly categorized into i) chain-natured (i.e. sequencers, side chains, oracles),  ii) non-chain-natured (i.e. keeper networks, trust execution environment, threshold cryptography schemes, new virtual machine, decentralized web2 social apps and etc)  and iii) hybrid (i.e. bridge can be implemented as a chain or non-chain format)
+- AVS clients vary in many formats, broadly categorized into i) chain-natured (i.e. sequencers, side chains, oracles),  ii) non-chain-natured (i.e. keeper networks, trust execution environment, threshold cryptography schemes, new virtual machine, decentralized web2 social apps and etc)  and iii) hybrid (i.e. a bridge can be implemented as a chain or non-chain format)
 - Chain-based AVS clients are easier to onboard but less motivated to pay for decentralized security.
 - The true paying demand lies with non-chain-based AVS clients as they don’t have an existing ready-to-use AVS-based infrastructure solution, a sector that leading restaking infrastructures all struggle to serve now.
 

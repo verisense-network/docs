@@ -10,7 +10,7 @@ Verisense has a powerful timer module. This module consists of
 
 ### `set_timer!` and `#[timer]`
 
-The macro `set_timer!` is used to set a new timer, this timer will be triggerd in the `delay` time. Its signature is as follow:
+The macro `set_timer!` is used to set a new timer, this timer will be triggered in the `delay` time. Its signature is as follows:
 
 ```
 set_timer!(Duration, timer_handler(params));
@@ -44,7 +44,7 @@ decorated function the timer handler role. `test_delay` will be called after 4 s
 
 So the `set_timer!` is just a delay function, how to implement intervals?
 
-**Interval** means executing a function periodically. We can use `set_timer!` with recusive call to implement it. For example:
+**Interval** means executing a function periodically. We can use `set_timer!` with recursive call to implement it. For example:
 
 ```
 #[post]
@@ -59,9 +59,9 @@ pub fn run_interval(){
 }
 ```
 
-In this example, we set a timer which would be triggerd in 2 seconds. While `run_interval` was triggered, you can do business in 
-`run_interval()`, and at the last line of this function, just set a new timer, which would be executed in 1 seconds, and then triggered
-the same `run_interval()` by tail recursion. Then later the program will run forever by intervals of 1 seconds. We implement intervals by this way.
+In this example, we set a timer which would be triggered in 2 seconds. While `run_interval` was triggered, you can do business in 
+`run_interval()`, and at the last line of this function, just set a new timer, which would be executed in 1 second, and then triggered
+the same `run_interval()` by tail recursion. Then later the program will run forever by intervals of 1 second. We implement intervals by this way.
 
 ### `#[init]`
 
