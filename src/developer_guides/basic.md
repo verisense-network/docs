@@ -14,7 +14,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 ```
 
-After installed, add the wasm compiler target:
+after installation, add the wasm compiler target:
 ```
 rustup target add wasm32-unknown-unknown
 ```
@@ -81,7 +81,7 @@ In the top of the source code, we involved two crates:
 - The `parity-scale-codec` to serialize and deserialize the parameters and result.
 - The `vrs-core-sdk` contains two macros and a sub module storage.
 
-AVS on Verisense has 2 types of endpoint to access:
+AVS on Verisense has 2 types of endpoints to access:
 - `get`: for read only. Modifying data or initiating external HTTP requests will cause panic.
 - `post`: allow modifying the AVS state, initiating external HTTP requests and setting timers.
 
@@ -94,7 +94,7 @@ To compile the AVS, run:
 cargo build --release --target wasm32-unknown-unknown
 ```
 
-Now let't deploy our first AVS to the local node. First, install the recent release version of the Verisense node:
+Now let's deploy our first AVS to the local node. First, install the recent release version of the Verisense node:
 
 ```
 git clone https://github.com/verisense-network/verisense
@@ -117,7 +117,7 @@ The command below shows how to create an AVS using the test account `Alice` whic
 ```
 vrx create-nucleus --name hello_avs --capacity 1
 ```
-The executing result is something like:
+The execution result is something like:
 ```
 Nucleus created.
   id: 5FsXfPrUDqq6abYccExCTUxyzjYaaYTr5utLx2wwdBv1m8R8
