@@ -37,7 +37,5 @@
   - [Making http requests](./http_requests.md)
   - [Setting a timer](./timer.md)
   - [KV Storage](./kv_storage.md)
-  <!-- - [Deriving external addresses to hold BTC UTXO](./deriving_btc_address.md) -->
-  <!-- - [Signing an BTC signature](./signing_btc_sig.md) -->
   - [Demo: developing a decentralized forum](./demo_veforum.md)
 
