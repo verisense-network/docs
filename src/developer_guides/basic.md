@@ -126,7 +126,7 @@ Nucleus created.
 ```
 The `id` represents the AVS account, then we deploy our wasm blob using the `id`:
 ```
-vrx deploy --name hello_avs --wasm-path ../target/wasm32-unknown-unknown/release/veavs.wasm --nucleus-id 5FsXfPrUDqq6abYccExCTUxyzjYaaYTr5utLx2wwdBv1m8R8  --version 1
+vrx deploy --name hello_avs --wasm-path ../target/wasm32-unknown-unknown/release/hello_avs.wasm --nucleus-id 5FsXfPrUDqq6abYccExCTUxyzjYaaYTr5utLx2wwdBv1m8R8  --version 1
 ```
 If everything works fine, it will return something like:
 ```
