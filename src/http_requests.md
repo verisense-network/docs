@@ -10,7 +10,6 @@ For example, let's request the `https://www.google.com`.
 ```
 use vrs_core_sdk::{CallResult, http::{*, self}, callback, post};
 
-///
 #[post]
 pub fn request_google() {
     let id = http::request(HttpRequest {
@@ -25,7 +24,6 @@ pub fn request_google() {
     vrs_core_sdk::println!("http request {} enqueued", id);
 }
 
-///
 #[callback]
 pub fn on_response(id: u64, response: CallResult<HttpResponse>) {
     match response {

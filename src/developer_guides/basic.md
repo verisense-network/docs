@@ -1,34 +1,33 @@
-# Developer Guides
+# Quick Start Guide: Developing Nucleus on Verisense
 
-> Please note: the `vrs-core-sdk` has not been released yet, this document is only for developer preview.
+Welcome to Verisense! This guide will help you quickly get started with developing your first Nucleus using Rust. By the end, you’ll have a simple deployed Nucleus and be able to interact with it.
 
+## 1. Set Up Your Rust Environment
 
-## Quick start
+First, install Rust and configure it for WebAssembly (Wasm) compilation:
 
-Although all programming languages support WASM could be used for developing AVS on Verisense, we only provide the rust sdk at present. 
+### Install Rust:
 
-For pre-requirement, you need to configurate your rust environment:
-
-```
+```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
 ```
-
-after installation, add the wasm compiler target:
-```
+### Add the WebAssembly target:
+```bash
 rustup target add wasm32-unknown-unknown
 ```
 
+## 2. Create and Compile a Rust Project
 
-Let's create a hello-avs project:
+### Create a new Rust library:
 
-```
+```bash
 cargo new --lib hello-avs
+cd hello-avs
 ```
 
-To develop a hello-world AVS, you need to indicate the target to `cdylib` and add `vrs-core-sdk` and `parity-scale-codec` as dependencies. Modify the `Cargo.toml`:
+### Update Cargo.toml
 
-```
+```toml
 [package]
 name = "hello-avs"
 version = "0.1.0"
@@ -38,13 +37,12 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-vrs-core-sdk = { git = "https://github.com/verisense-network/verisense", package = "vrs-core-sdk" }
+vrs-core-sdk = { version = "0.0.2" }
 parity-scale-codec = { version = "3.6", features = ["derive"] }
 ```
 
-Now, let's develop a simple AVS for naively storing users:
-
-```
+### Write your first Nucleus code:
+```rust
 use parity_scale_codec::{Decode, Encode};
 use vrs_core_sdk::{get, post, storage};
 
@@ -77,78 +75,91 @@ pub fn get_user(id: u64) -> Result<Option<User>, String> {
 }
 ```
 
-In the top of the source code, we involved two crates: 
-- The `parity-scale-codec` to serialize and deserialize the parameters and result.
-- The `vrs-core-sdk` contains two macros and a sub module storage.
+### Build the project for WebAssembly:
 
-AVS on Verisense has 2 types of endpoints to access:
-- `get`: for read only. Modifying data or initiating external HTTP requests will cause panic.
-- `post`: allow modifying the AVS state, initiating external HTTP requests and setting timers.
-
-Both require that the parameters and returning type of the function to impl `Encode + Decode`.
-
-The `add_user` uses the `storage::search` and `storage::put` functions provided by the sdk to lookup the maximum user id and then assign a new id to the incoming user. And the `get_user` simply retrieve it.
-
-To compile the AVS, run:
-```
+```bash
 cargo build --release --target wasm32-unknown-unknown
 ```
 
-Now let's deploy our first AVS to the local node. First, install the recent release version of the Verisense node:
+## 3. Install Command-Line Tools and Get Free Gas
 
-```
-git clone https://github.com/verisense-network/verisense
-cd verisense && cargo build --release
-```
-
-After a while, run the Verisense node in dev mode in the name of well-known validator alice:
-
-```
-target/release/verisense --dev --alice
-```
-
-Then install the verisense cli tool `vrx`:
-
-```
+### Install the Verisense CLI:
+```bash
 cargo install --git https://github.com/verisense-network/vrs-cli.git
 ```
 
-The command below shows how to create an AVS using the test account `Alice` which already hold some tokens:
+### Generate an account:
+```bash
+vrx account generate --save
 ```
-vrx create-nucleus --name hello_avs --capacity 1
+
+This command will generate an account and save the private key to ~/.vrx/default-key. Example output:
 ```
-The execution result is something like:
+Phrase: exercise pipe nerve daring census inflict cousin exhaust valve legend ancient gather
+Seed: 0x35929b4e23d26c5ba94d22d32222128e56f5a7dce35f9b36b467ac2be2b4d29b
+Public key: 0x9cdaa67b771a2ae3b5e93b3a5463fc00e6811ed4f2bd31a745aa32f29541150d
+Account Id: kGj5epfCkuae7DJpezu5Qx6mp96gHmLv2kDPHHTdJaEVNptRt
+```
+
+### Request free gas:
+
+Chat with the [Verisense Faucet Bot](https://t.me/verisense_faucet_bot) and provide your account ID to request free $VRS.
+
+## 4. Create and Deploy a Nucleus
+
+### Create a Nucleus:
+```bash
+vrx nucleus --devnet create --name hello_avs --capacity 1
+```
+
+Example output:
+
 ```
 Nucleus created.
-  id: 5FsXfPrUDqq6abYccExCTUxyzjYaaYTr5utLx2wwdBv1m8R8
+  id: kGieDqL1fX8J7n1vRbXri7DVphwnZJpkDcoMoQZWo9XkTt1Sv
   name: hello_avs
   capacity: 1
 ```
-The `id` represents the AVS account, then we deploy our wasm blob using the `id`:
+
+### Deploy the compiled Wasm:
 ```
-vrx deploy --name hello_avs --wasm-path ../target/wasm32-unknown-unknown/release/hello_avs.wasm --nucleus-id 5FsXfPrUDqq6abYccExCTUxyzjYaaYTr5utLx2wwdBv1m8R8  --version 1
+vrx install --wasm target/wasm32-unknown-unknown/release/hello_avs.wasm --id kGieDqL1fX8J7n1vRbXri7DVphwnZJpkDcoMoQZWo9XkTt1Sv
 ```
-If everything works fine, it will return something like:
+
+If successful, you will see output like this:
+
 ```
 Digest: 0xff878e546806da8b13f02765ea84f616963abcfdcac196ba3ea9f3f5d94b661e
 Peer ID: 12D3KooWCz46orfkSfaahJqkph1bQqXU9t7ct98YQKTaDepNE6du
 Transaction submitted: "0x0bc7d23b900a880e5274582755fc1a6c17df9453b0aa43f4cc382efc0bf1ec39"
 ```
 
-Now it's time to request our AVS. Let's call `add_user` first.
+## 5. Test Your Nucleus
 
-```
-curl localhost:9944 -H 'Content-Type: application/json' -XPOST -d '{"jsonrpc":"2.0", "id":"whatever", "method":"nucleus_post", "params": ["5FsXfPrUDqq6abYccExCTUxyzjYaaYTr5utLx2wwdBv1m8R8", "add_user", "000000000000000014416c696365"]}'
-```
-The networking component follows the standard JSON-RPC specification, and all `post` and `get` methods share a same endpoint separately. In the `add_user` case, the method is `nucleus_post` and so all other `post` methods.
+### Call add_user:
 
-The first parameter is the `nucleus_id` we are requesting, the second indicates the function name in the source code which is `add_user`. While the third is an encoded bytes whose value is: ```User {0, "Alice"}```. You can find different implementations for various programming languages.
-
-Calling `get_user` is similar, we just need to change the method and parameter:
-```
-curl localhost:9944 -H 'Content-Type: application/json' -XPOST -d '{"jsonrpc":"2.0", "id":"whatever", "method":"nucleus_get", "params": ["5FsXfPrUDqq6abYccExCTUxyzjYaaYTr5utLx2wwdBv1m8R8", "get_user", "0100000000000000"]}'
+```bash
+curl https://alpha-devnet.verisense.network -H 'Content-Type: application/json' -XPOST -d '{"jsonrpc":"2.0", "id":"whatever", "method":"nucleus_post", "params": ["kGieDqL1fX8J7n1vRbXri7DVphwnZJpkDcoMoQZWo9XkTt1Sv", "add_user", "000000000000000014416c696365"]}'
 ```
 
+The networking component follows the standard JSON-RPC specification, and all post and get methods share a same endpoint separately. In the *add_user* case, the method is *nucleus_post* and so all other post methods.
+
+The first parameter is the *nucleus_id* we just deployed, the second indicates the function name in the source code which is *add_user*. While the third is an *parity-scale-encoded* bytes whose value is: `User {0, "Alice"}`. You can find different implementations for various programming languages.
+
+
+### Call get_user:
+
+Calling get_user is similar, we just need to change the method and parameter:
+
+```bash
+curl https://alpha-devnet.verisense.network -H 'Content-Type: application/json' -XPOST -d '{"jsonrpc":"2.0", "id":"whatever", "method":"nucleus_get", "params": ["kGieDqL1fX8J7n1vRbXri7DVphwnZJpkDcoMoQZWo9XkTt1Sv", "get_user", "0100000000000000"]}'
+```
+
+## Conclusion
+
+Congratulations! You’ve created, deployed, and interacted with your first Nucleus on Verisense. You can now expand your AVS functionality and explore advanced features of the platform.
+
+For more information, check the Verisense documentation.
 
 ## What's next
 For more advanced topics, see:
