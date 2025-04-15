@@ -1,6 +1,6 @@
 # Quick Start Guide: Developing Nucleus on Verisense
 
-Welcome to Verisense! This guide will help you quickly get started with developing your first Nucleus using Rust. By the end, you’ll have a simple deployed Nucleus and be able to interact with it.
+This guide will help you quickly get started with developing your first Nucleus using Rust. By the end, you’ll have a simple deployed Nucleus and be able to interact with it.
 
 ## 1. Set Up Your Rust Environment
 
@@ -163,8 +163,8 @@ For more information, check the Verisense documentation.
 
 ## What's next
 For more advanced topics, see:
-- [Making http requests]()
-- [Setting a timer]()
+- [Making http requests](./http_requests.md)
+- [Setting a timer](./timer.md)
 - [Deriving external addresses to hold external assets]()
 - [Signing an external signature]()
 - [Demo: developing a decentralized forum]()

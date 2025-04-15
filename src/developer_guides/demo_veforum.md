@@ -251,7 +251,7 @@ You can find the compiled wasm file located at `target/wasm32-unknown-unknown/re
 Register a new AVS protocol on Verisense.
 
 ```
-vrx create-nucleus --name veavs --capacity 1
+vrx nucleus create veavs --capacity 1
 ```
 
 This command will return the registered AVS (nucleus) ID like:
