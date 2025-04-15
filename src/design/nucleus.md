@@ -16,6 +16,10 @@ Most blockchain systems primarily offer two functionalities: key-value database 
 
 - **Multitype Public Key Access and Signature Functions**: Nuclei can obtain various public key types and execute functions to sign any data.
 
+The picture below shows some use cases of Nucleus.
+
+![](https://raw.githubusercontent.com/verisense-network/docs/refs/heads/master/assets/usage.png)
+
 ## Lifecycle
 
 The lifecycle of a Nucleus in Verisense encompasses several distinct stages, from creation through operation and potential decommissioning.
@@ -59,9 +63,10 @@ The implementation of an Indexer is at the discretion of the Nucleus developer, 
 
 This flexibility enables developers to optimize data indexing and querying based on the particular needs of their application.
 
-## Online Demo: Aitonomy, the first AI-driven decentrailized forum for tokenizing communities
+## Online Demo: Aitonomy
 
 This nucleus demonstrates the abilities of Verisense including bridgeless connection with external blockchains using TSS and AI integration using networking requests.
 
-[Aitonomy](https://www.aitonomy.world)
-[video on X](https://x.com/veri_sense/status/1901844739378606523?s=46)
+- [Aitonomy: The first AI-driven decentrailized forum for tokenizing communities](https://www.aitonomy.world)
+
+- [Video on X](https://x.com/veri_sense/status/1901844739378606523?s=46)

@@ -8,6 +8,8 @@ Monadring defines a topological structure among network members, forming a ring 
 ## Token Circulation
 Within a subnet, a token circulates periodically around the ring, granting state modification rights to the node currently holding it. Though the token structure is complex and detailed in our paper, it can be simplistically understood as containing each node's received events, the current state, and node signatures. When a node receives the token, it first executes events enclosed within, originating from other nodes, followed by its own events. Upon execution, it adds its events to the token, propagating it around the network. This ensures a globally recognized sequence of Nucleus events, defining the sequence of state modifications.
 
+![](https://raw.githubusercontent.com/verisense-network/docs/refs/heads/master/assets/ring.png)
+
 ## Full Homomorphic Encryption (FHE)
 A network relying solely on VRF for random member selection lacks inherent security. Thus, we introduce FHE to sign the states contained within the token, ensuring that nodes cannot view the processing results of others for specific events. By utilizing VRF for node selection and FHE for token signing, the subnet consensus mechanism simulates a Prisoner's Dilemma scenario. Even in small-scale networks, appropriately designed incentive strategies can enforce network security.
 
