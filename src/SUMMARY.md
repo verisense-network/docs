@@ -10,7 +10,7 @@
     - [Threshold Key Sharing](./design/FHE/Threshold_key_sharing.md)
     - [Game Theory in Blockchain](./design/FHE/Game_Theory_in_Blockchain.md)
 
-- [Develoer guides](./developer_guides/basic.md)
+- [Developer guides](./developer_guides/basic.md)
   - [Making http requests](./developer_guides/http_requests.md)
   - [Setting a timer](./developer_guides/timer.md)
   - [KV Storage](./developer_guides/kv_storage.md)
