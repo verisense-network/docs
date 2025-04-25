@@ -3,6 +3,7 @@
 - [The background](./background/overview.md)
 
 - [The design](./design/overview.md)
+
   - [Nucleus](./design/nucleus.md)
   - [Monadring](./design/monadring.md)
   - [FHE](./design/FHE/Introduction.md)
@@ -15,4 +16,4 @@
   - [Setting a timer](./developer_guides/timer.md)
   - [KV Storage](./developer_guides/kv_storage.md)
   - [Demo: developing a decentralized forum](./developer_guides/demo_veforum.md)
-
+  - [AItonomy guide](./developer_guides/aitonomy.md)
