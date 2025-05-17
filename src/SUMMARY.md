@@ -12,6 +12,10 @@
     - [Game Theory in Blockchain](./design/FHE/Game_Theory_in_Blockchain.md)
 
 - [Developer guides](./developer_guides/basic.md)
+  - [Create your first Nucleus](./developer_guides/simple.md)
+  - [Deploy your Nucleus](./developer_guides/deploy.md)
+  - [Interact with Nucleus](./developer_guides/interact.md)
+- [Advanced guides](./developer_guides/advanced.md)
   - [Making http requests](./developer_guides/http_requests.md)
   - [Setting a timer](./developer_guides/timer.md)
   - [KV Storage](./developer_guides/kv_storage.md)
