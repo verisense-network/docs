@@ -27,7 +27,7 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-vrs-core-sdk = { version = "0.1.0", default-features = false }
+vrs-core-sdk = { git = "https://github.com/verisense-network/vrs-core-sdk.git", rev="1a822394029bc7bb36cbe6e09d10d2f57700b2c8" }
 parity-scale-codec = { version = "3.6", features = ["derive"] }
 ```
 
@@ -37,9 +37,11 @@ Edit the file `src/lib.rs` and insert the following code:
 
 ```rust
 use vrs_core_sdk::codec::{Decode, Encode};
+use vrs_core_sdk::export;
 use vrs_core_sdk::{get, post, storage};
 
 #[derive(Debug, Decode, Encode)]
+#[export]
 pub struct User {
     pub id: u64,
     pub name: String,
