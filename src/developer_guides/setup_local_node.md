@@ -28,4 +28,7 @@ After running this command, you will see that the local node has started success
 
 This local node will allow us to deploy and interact with our Nucleus for development and testing purposes.
 
-```
+### Debugging on Beta Network
+
+To access logs for debugging purposes on the beta network, visit:
+https://rpc.beta.verisense.network/<NUCLEUS_ID>/logs
