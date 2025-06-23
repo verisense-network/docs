@@ -15,6 +15,7 @@
   - [Create your first Nucleus](./developer_guides/simple.md)
   - [Deploy your Nucleus](./developer_guides/deploy.md)
   - [Interact with Nucleus](./developer_guides/interact.md)
+  - [Set Up a Local Verisense Node](./developer_guides/setup_local_node.md)
 - [Advanced guides](./developer_guides/advanced.md)
   - [Making http requests](./developer_guides/http_requests.md)
   - [Setting a timer](./developer_guides/timer.md)

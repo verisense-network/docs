@@ -55,13 +55,26 @@ Nucleus created.
   Name: hello_avs
   Capacity: 1
 ```
+**Step 2: Generate the ABI for the Nucleus**
 
-**Step 2: Install the Nucleus Executable**
+From the root directory of your Nucleus project, follow these steps:
+
+```bash
+cargo install --git https://github.com/verisense-network/nucleus-abigen
+cargo clean
+cargo build --release --target wasm32-unknown-unknown
+nucleus-abigen
+```
+
+After running these commands, an `exports.json` file will be generated in the root directory, containing the exported ABI definitions for your Nucleus.
+
+
+**Step 3: Install the Nucleus Executable**
 
 Deploy the WebAssembly file with the following command:
 
 ```bash
-vrx nucleus install --id kGgGtCimpkywYrQ7yULt3pEZYwetW35NrupEfSyTavTPULXbV --wasm hello_avs.wasm --rpc wss://rpc.beta.verisense.network
+vrx nucleus install --id kGgGtCimpkywYrQ7yULt3pEZYwetW35NrupEfSyTavTPULXbV --wasm hello_avs.wasm --abi exports.json --rpc wss://rpc.beta.verisense.network
 ```
 
 Example output:
