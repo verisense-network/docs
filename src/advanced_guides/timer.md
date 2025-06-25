@@ -1,30 +1,52 @@
+Of course! Here’s your refined and polished version:
+
+---
 
 ## Timer
 
-Verisense has a powerful timer module. This module consists of 
+Verisense provides a powerful timer module that enables developers to schedule delayed or recurring function executions. The module consists of:
 
-- #[init]
-- #[timer]
-- set_timer!()
+* `#[init]`
+* `#[timer]`
+* `set_timer!()`
 
+---
 
-### `set_timer!` and `#[timer]`
+### `#[init]`: Initialization Hook
 
-The macro `set_timer!` is used to set a new timer, this timer will be triggered in the `delay` time. Its signature is as follows:
+A Rust function decorated with the `#[init]` attribute macro serves as a special initialization handler. This function is automatically invoked when a new version of the WASM module is deployed or upgraded.
 
+**Example:**
+
+```rust
+#[init]
+pub fn timer_init() {
+    storage::put(b"delay", format!("init").as_bytes());
+}
 ```
+
+In this example, `timer_init()` will be called automatically upon deployment of a new AVS WASM version, allowing you to perform any necessary initialization tasks.
+
+---
+
+### `set_timer!` and `#[timer]`: Scheduling Timers
+
+The `set_timer!` macro is used to schedule a new timer that triggers a handler function after a specified delay. Its syntax is:
+
+```rust
 set_timer!(Duration, timer_handler(params));
 ```
 
-let's look at how to use it. 
+#### Basic Usage
 
-```
+```rust
 #[post]
 pub fn test_set_timer() {
     storage::put(b"delay", format!("init").as_bytes());
 
     let a = "abc".to_string();
     let b = 123;
+
     set_timer!(std::time::Duration::from_secs(4), test_delay(a, b));
 }
 
@@ -32,52 +54,66 @@ pub fn test_set_timer() {
 pub fn test_delay(a: String, b: i32) {
     storage::put(b"delay", format!("delay_complete {} {}", a, b).as_bytes()).unwrap();
 }
-
 ```
 
-In the above example, in the post function `test_set_timer`, we use a `set_timer!` to create a new timer, this timer will be
-triggered after 4 seconds, the triggered function is `test_delay`. You can write parameters of the handler in the `set_timer!` 
-macro directly.
+In this example:
 
-Let's inspect the timer handler further. The handler function `test_delay` must be decorated by `#[timer]`, which assigns the 
-decorated function the timer handler role. `test_delay` will be called after 4 seconds when `test_set_timer` is called.
+* The `test_set_timer` function sets a timer that will trigger after 4 seconds.
+* When the timer fires, the `test_delay` function is executed with the provided arguments.
+* All timer handler functions must be decorated with the `#[timer]` attribute.
 
-So the `set_timer!` is just a delay function, how to implement intervals?
+The `set_timer!` macro allows you to directly pass arguments to the timer handler, which are safely serialized and deserialized by the runtime.
 
-**Interval** means executing a function periodically. We can use `set_timer!` with recursive call to implement it. For example:
+---
 
-```
+### Implementing Intervals (Recurring Timers)
+
+By default, `set_timer!` schedules one-shot timers. To implement periodic execution (intervals), you can schedule the next timer within the timer handler itself, effectively creating a recursive loop.
+
+**Example:**
+
+```rust
 #[post]
 pub fn test_set_timer() {
     set_timer!(std::time::Duration::from_secs(2), run_interval());
 }
 
 #[timer]
-pub fn run_interval(){
-    // do something
+pub fn run_interval() {
+    // Business logic executed on each interval
+    storage::put(b"interval", b"running");
+
+    // Schedule the next execution
     set_timer!(std::time::Duration::from_secs(1), run_interval());
 }
 ```
 
-In this example, we set a timer which would be triggered in 2 seconds. While `run_interval` was triggered, you can do business in 
-`run_interval()`, and at the last line of this function, just set a new timer, which would be executed in 1 second, and then triggered
-the same `run_interval()` by tail recursion. Then later the program will run forever by intervals of 1 second. We implement intervals by this way.
+In this pattern:
 
-### `#[init]`
+1. An initial timer is set to trigger after 2 seconds.
+2. Inside `run_interval`, your business logic is executed.
+3. At the end of each execution, a new timer is scheduled to run after 1 second.
+4. This creates a continuous periodic execution loop.
 
-A rust function decorated by this attribue macro is a special timer handler, it will be triggered when a new version of wasm code is upgraded.
+This recursive approach allows you to implement interval-like behavior without native interval support.
 
-For example:
+---
 
-```
-#[init]
-pub fn timer_init() {
-    storage::put(b"delay", format!("init").as_bytes());
-}
-```
+### Summary
 
-The `timer_init()` will be called automatically when a new version of one AVS wasm code is upgraded in Verisense.
+| Component      | Description                                                                  |
+| -------------- | ---------------------------------------------------------------------------- |
+| `#[init]`      | Automatically called on WASM deployment or upgrade for initialization tasks. |
+| `set_timer!()` | Schedules a one-shot timer to invoke a handler after a specified delay.      |
+| `#[timer]`     | Marks a function as a valid timer handler callable by the runtime.           |
+| Intervals      | Achieved by recursively scheduling timers within timer handlers.             |
 
-You can refer to a more complex example at [here](https://github.com/verisense-network/verisense/blob/main/nucleus-examples/examples/timer.rs#L3).
+---
 
+### Further Reading
 
+For a more advanced example, refer to the official [Verisense Timer Example](https://github.com/verisense-network/verisense/blob/main/nucleus-examples/examples/timer.rs#L3).
+
+---
+
+If you want, I can also generate a **“fully polished official documentation version”** suitable for inserting directly into your SDK docs or developer guide. Just say **"make official version"** if you'd like me to do that.

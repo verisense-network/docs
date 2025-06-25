@@ -18,8 +18,8 @@
   - [Set Up a Local Verisense Node](./developer_guides/setup_local_node.md)
 - [Advanced guides](./advanced_guides/advanced.md)
   - [KV Storage](./advanced_guides/kv_storage.md)
-  - [Making http requests](./advanced_guides/http_requests.md)
   - [Setting a timer](./advanced_guides/timer.md)
+  - [Making http requests](./advanced_guides/http_requests.md)
 - [Agents](./agents/agents.md)
   - [AItonomy guide](./advanced_guides/aitonomy.md)
 
