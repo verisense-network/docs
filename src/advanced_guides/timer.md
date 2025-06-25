@@ -1,6 +1,3 @@
-Of course! Here’s your refined and polished version:
-
----
 
 ## Timer
 
@@ -107,13 +104,3 @@ This recursive approach allows you to implement interval-like behavior without n
 | `set_timer!()` | Schedules a one-shot timer to invoke a handler after a specified delay.      |
 | `#[timer]`     | Marks a function as a valid timer handler callable by the runtime.           |
 | Intervals      | Achieved by recursively scheduling timers within timer handlers.             |
-
----
-
-### Further Reading
-
-For a more advanced example, refer to the official [Verisense Timer Example](https://github.com/verisense-network/verisense/blob/main/nucleus-examples/examples/timer.rs#L3).
-
----
-
-If you want, I can also generate a **“fully polished official documentation version”** suitable for inserting directly into your SDK docs or developer guide. Just say **"make official version"** if you'd like me to do that.
