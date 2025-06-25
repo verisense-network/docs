@@ -16,6 +16,7 @@ On the Verisense platform, TSS is mainly used for:
 
 * Cross-chain bridge custody: ensuring secure multi-party control over cross-chain assets.
 * Vault locking: for example, in multi-party governance or multi-signature wallets, ensuring that sensitive operations require multiple parties to jointly authorize.
+* Monadring Consensus Algorithm.
 
 ---
 
