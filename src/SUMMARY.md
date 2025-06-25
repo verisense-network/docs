@@ -20,6 +20,7 @@
   - [KV Storage](./advanced_guides/kv_storage.md)
   - [Setting a timer](./advanced_guides/timer.md)
   - [Making http requests](./advanced_guides/http_requests.md)
+  - [Threshold Signature Scheme](./advanced_guides/tss.md)
 - [Agents](./agents/agents.md)
   - [AItonomy guide](./advanced_guides/aitonomy.md)
 
