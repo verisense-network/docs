@@ -27,8 +27,9 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-vrs-core-sdk = { git = "https://github.com/verisense-network/vrs-core-sdk.git", rev="1a822394029bc7bb36cbe6e09d10d2f57700b2c8" }
+vrs-core-sdk = { version = "0.2.0" }
 parity-scale-codec = { version = "3.6", features = ["derive"] }
+scale-info = { version = "2.11.6", features = ["derive"] }
 ```
 
 ### Step 3: Implement the Core Logic
@@ -36,30 +37,35 @@ parity-scale-codec = { version = "3.6", features = ["derive"] }
 Edit the file `src/lib.rs` and insert the following code:
 
 ```rust
+use scale_info::TypeInfo;
 use vrs_core_sdk::codec::{Decode, Encode};
-use vrs_core_sdk::export;
-use vrs_core_sdk::{get, post, storage};
-
-#[derive(Debug, Decode, Encode)]
-#[export]
+use vrs_core_sdk::nucleus;
+#[derive(Debug, Decode, Encode, TypeInfo)]
 pub struct User {
     pub id: u64,
     pub name: String,
 }
+#[nucleus]
+pub mod nucleus {
+    use crate::User;
+    use vrs_core_sdk::codec::{Decode, Encode};
+    use vrs_core_sdk::{get, post, storage};
+    #[post]
+    pub fn add_user(user: User) -> Result<u64, String> {
+        let key = [&b"user:"[..], &user.id.to_be_bytes()[..]].concat();
+        println!("{:?}", key);
+        storage::put(&key, &user.encode()).map_err(|e| e.to_string())?;
+        Ok(user.id)
+    }
 
-#[post]
-pub fn add_user(user: User) -> Result<u64, String> {
-    let key = [&b"user:"[..], &user.id.to_be_bytes()[..]].concat();
-    storage::put(&key, &user.encode()).map_err(|e| e.to_string())?;
-    Ok(user.id)
-}
-
-#[get]
-pub fn get_user(id: u64) -> Result<Option<User>, String> {
-    let key = [&b"user:"[..], &id.to_be_bytes()[..]].concat();
-    let result = storage::get(&key).map_err(|e| e.to_string())?;
-    let user = result.map(|data| User::decode(&mut &data[..]).unwrap());
-    Ok(user)
+    #[get]
+    pub fn get_user(id: u64) -> Result<Option<User>, String> {
+        let key = [&b"user:"[..], &id.to_be_bytes()[..]].concat();
+        println!("{:?}", key);
+        let result = storage::get(&key).map_err(|e| e.to_string())?;
+        let user = result.map(|data| User::decode(&mut &data[..]).unwrap());
+        Ok(user)
+    }
 }
 
 ```
@@ -87,7 +93,7 @@ Let's break down the functionality provided by this simple Nucleus step-by-step:
 First, a struct named `User` is defined:
 
 ```rust
-#[derive(Debug, Decode, Encode)]
+#[derive(Debug, Decode, Encode, TypeInfo)]
 pub struct User {
     pub id: u64,
     pub name: String,
@@ -103,6 +109,64 @@ The storage interaction APIs are as follows:
 
 * `storage::put` writes data to storage.
 * `storage::get` reads data from storage.
+  
+### Purpose of `TypeInfo` and `#[nucleus]`
+
+#### `TypeInfo`
+
+```rust
+#[derive(Debug, Decode, Encode, TypeInfo)]
+pub struct User {
+    pub id: u64,
+    pub name: String,
+}
+```
+
+The `TypeInfo` derive macro comes from the [`scale-info`](https://docs.rs/scale-info) crate. It plays a crucial role in generating **type metadata at compile time**, which is then embedded into your compiled WebAssembly module.
+
+This metadata serves several important purposes:
+
+* **ABI Generation:**
+  `TypeInfo` enables automatic generation of an Application Binary Interface (ABI). This allows external clients (such as frontends, other chain modules, or the Verisense dashboard) to understand the precise structure of types like `User`, including their field names and data types.
+
+* **Cross-language Compatibility:**
+  Since the type descriptions are included, tools written in JavaScript, Python, or other languages can introspect your WebAssembly module and correctly encode/decode the data to call your functions.
+
+* **Auto-generated UI:**
+  The Verisense dashboard, for example, uses this type metadata to automatically generate input forms. It knows that when it needs a `User`, it should display an input for `id: u64` and `name: String`.
+
+In short:
+
+> **`TypeInfo` ensures that your data structures are fully described for ABI export, enabling automated tooling, documentation, and seamless cross-language integration.**
+
+---
+
+#### `#[nucleus]`
+
+```rust
+#[nucleus]
+pub mod nucleus {
+    ...
+}
+```
+
+The `#[nucleus]` attribute macro comes from the `vrs-core-sdk` and is fundamental to marking this Rust module as a **Nucleus**.
+
+Its primary responsibilities are:
+
+* **Export ABI:**
+  It collects all functions inside this module that are marked with `#[get]`, `#[post]`, or `#[init]` and registers them in the Nucleus ABI. This means when your `.wasm` is deployed, the blockchain runtime or the Verisense dashboard knows exactly which functions are exposed, along with their input/output types.
+
+* **Generate Glue Code:**
+  It automatically generates the necessary export functions (such as `_invoke`) that the blockchain’s Wasm executor will call. This abstracts away low-level host bindings, so you only need to focus on your Rust functions.
+
+* **Provide a Clean Namespace:**
+  By wrapping your interfaces inside the `#[nucleus]` macro, you avoid polluting the global scope. All public functions intended to be callable externally are neatly contained and registered.
+
+In short:
+
+> **`#[nucleus]` transforms your Rust module into a deployable AVS, automatically exporting its ABI and wiring up the execution glue so it can run inside the Verisense runtime.**
+
 
 ### Add a New User with an ID
 

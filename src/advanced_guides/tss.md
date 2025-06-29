@@ -69,7 +69,6 @@ Verisense currently supports the following signature algorithms:
 ```rust
 #[repr(u8)]
 #[derive(Encode, Decode)]
-#[export]
 pub enum CryptoType {
     P256 = 0,
     Ed25519 = 1,
