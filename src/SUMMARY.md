@@ -17,6 +17,7 @@
   - [Interact with Nucleus](./developer_guides/interact.md)
   - [Set Up a Local Verisense Node](./developer_guides/setup_local_node.md)
 - [Advanced guides](./advanced_guides/advanced.md)
+  - [Course](./advanced_guides/course.md)
   - [KV Storage](./advanced_guides/kv_storage.md)
   - [Setting a timer](./advanced_guides/timer.md)
   - [Making http requests](./advanced_guides/http_requests.md)

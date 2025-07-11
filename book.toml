@@ -7,3 +7,4 @@ title = "Verisense Docs"
 
 [output.html]
 mathjax-support = true
+unsafe-html = true
