@@ -100,7 +100,7 @@
 <div class="course-header">
   <h1 style="margin: 0; font-size: 2.5rem;">🚀 Verisense Developer Course</h1>
   <p class="course-description">
-    This is a course serious for developers to understand the innovative features of Verisense and use Verisense to develop and deploy an AI agent or agentic assets (i.e. context, tools and mroe). 
+    The Verisense Developer Course is a hands-on series designed to help developers understand the core innovations of Verisense and learn how to build and deploy AI agents and agentic assets - including tools, context, domain-specific knowledge, and more - on the Verisense platform.
   </p>
 </div>
 
