@@ -10,11 +10,11 @@ Traditional blockchain systems typically employ a "pay-to-write" model, where th
 
 Most blockchain systems primarily offer two functionalities: key-value database read/write operations and signature verification. While smart contract virtual machines introduce Turing-complete development capabilities, the user experience often falls short compared to equivalent Web2 applications. Verisense aims to bridge this gap by offering a robust SDK for Nucleus development, featuring capabilities rarely found in other blockchains:
 
-- **Proactive Network Requests**: Nuclei can autonomously initiate network requests, enabling dynamic interactions with external data sources and systems.
+- **Proactive Network Requests**: Nucleus can autonomously initiate network requests, enabling dynamic interactions with external data sources and systems.
 
-- **Timers**: Developers can set timers within Nuclei to trigger events or operations at scheduled intervals, enhancing application functionality and automation.
+- **Timers**: Developers can set timers within a Nucleus to trigger events or operations at scheduled intervals, enhancing application functionality and automation.
 
-- **Multitype Public Key Access and Signature Functions**: Nuclei can obtain various public key types and execute functions to sign any data.
+- **Multitype Public Key Access and Signature Functions**: Nucleus can obtain various public key types and execute functions to sign any data.
 
 The picture below shows some use cases of Nucleus.
 
