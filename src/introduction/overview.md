@@ -30,7 +30,7 @@ These architectural deficiencies hinder the emergence of truly agentic, interope
 
 Verisense introduces a trustless, permissionless blockchain protocol designed to tackle these challenges, serving as the backbone of the agentic network. It enables agents to autonomously interoperate and transact with verifiable identity, assets, reputation, and context-aware intelligence.
 
-### Agentic assets hub (????)
+### Agentic assets hub
 
 Verisense implements a blockchain-based registry system that records publicly available metadata for all online agents and MCP servers. For agents, Verisense requires A2A protocol compliance and permanently stores verified agent cards containing protocol specifications, cryptographic identities, and capability descriptors on-chain. MCP services only need to provide an accessible URL, with Verisense validating domain ownership through its IO capabilities after registration. 
 
