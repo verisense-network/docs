@@ -1,10 +1,10 @@
 # Introduction
 
-> Verisense is an open hub for the agentic network.
+> Verisense is an infrastructural protocol for the agentic network with true autonomy and interoperability. 
 
-## The agentic protocol stack
+## The agentic communication stacks and limitations
 
-The existing communication protocols in AI systems can be categorized into three types:
+The existing AI communication protocols can be categorized in three types:
 
 1. LLM Communication Protocols: Standardized API specifications used for communication between LLM-backed applications/agents and large language models (each LLM provider maintains proprietary API standards)
 
@@ -12,27 +12,29 @@ The existing communication protocols in AI systems can be categorized into three
 
 3. Agent-to-Agent Communication Protocol (A2A): Standard protocols enabling communication between remote agents
 
-While these protocols may form the foundation of next-generation AI internet infrastructure, they currently present several critical limitations:
+While these protocols truly being the pillars of next-generation AI internet infrastructure, they currently present several critical limitations.
 
 Technical Limitations:
 
 1. Multi-tenancy Deficiency: The MCP protocol lacks native multi-tenancy support, potentially causing session conflicts when multiple agents concurrently access the same MCP service
 
-2. Service Discovery Gap: Both A2A and MCP currently operate purely through point-to-point connections without mechanisms for automatic network formation or service discovery
+2. Service Discovery Gap: Both A2A and MCP currently operate purely through point-to-point connections without mechanisms, lacking automatic network formation or agent-native service discovery
 
 3. Identity and Authorization Challenges: No unified solution exists for cross-network agent authentication and permission management in agent-to-agent communications
 
-These architectural deficiencies may hinder scalability and interoperability as AI network complexity increases. Future protocol developments should prioritize addressing these foundational constraints.
+4. Verifiability and Trust Absence: No built-in mechanisms for verifiability and trust. Agents typically operate in isolated black boxes, leaving users no easy way to establish trust or verify agent behavior and historical activity. A baseline of verifiability, traceability, and accountability is essential.
+
+These architectural deficiencies hinder the emergence of truly agentic, interoperable, and scalable networks. Future protocol developments should prioritize addressing these constraints and lay the foundation for agentic networks and AI autonomy.
 
 ## What is Verisense
 
-Verisense proposes a trustless and permissionless network based on blockchain technology to solve these problems above.
+Verisense introduces a trustless, permissionless blockchain protocol designed to tackle these challenges, serving as the backbone of the agentic network. It enables agents to autonomously interoperate and transact with verifiable identity, assets, reputation, and context-aware intelligence.
 
-### Agentic assets hub
+### Agentic assets hub (????)
 
-Verisense implements a blockchain-based registry system that publicly records metadata for all online agents and MCP servers. For agents, Verisense requires A2A protocol compliance and permanently stores verified agent cards containing protocol specifications, cryptographic identities, and capability descriptors on-chain. MCP services only need to provide an accessible URL, with Verisense validating domain ownership through its IO capabilities after registration. 
+Verisense implements a blockchain-based registry system that records publicly available metadata for all online agents and MCP servers. For agents, Verisense requires A2A protocol compliance and permanently stores verified agent cards containing protocol specifications, cryptographic identities, and capability descriptors on-chain. MCP services only need to provide an accessible URL, with Verisense validating domain ownership through its IO capabilities after registration. 
 
-### The best identity solution for AI
+### The purpose-built identity solution for agents
 
 Verisense incorporates decentralized identity (DID) services to enable secure transactions. Both online agents and MCP servers validate requests by performing the following steps:
 
@@ -61,9 +63,9 @@ Implementation Benefits
 
 Note: This mechanism can integrate with automated micropayments for pay-per-call services.
 
-### AI-based incentive & serivce inspection
+### Service Inspection and Performance Evaluation with Incentive Alignment
 
-Verisense's SenseSpace is a user-facing application where all requests are processed through **Katryna**, a specialized system-scope agent that verifies service quality from online agents and MCP servers before deducting fees from user accounts and disbursing payments to providers. 
+Verisense's SenseSpace is a user-facing application where all requests are processed through **Katryna**, a specialized system-scope agent that inspect service quality and measure task performance of online agents and MCP servers before deducting fees from user accounts and disbursing payments to providers. 
 
 Katryna enforces strict quality-of-service checks (latency, correctness, uptime), ensuring users only pay for successful, high-performance services while penalizing underperforming providers. Each transaction is authenticated via DID-linked signatures, with payments processed automatically after validation, and full transparency maintained through on-chain audit logs. This system guarantees fraud-resistant, pay-for-performance interactions, where providers must meet reliability standards to earn rewards—creating a self-regulating, high-trust ecosystem for decentralized AI services. 
 
