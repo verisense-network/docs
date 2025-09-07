@@ -1,6 +1,6 @@
 # Introduction
 
-> Verisense is an infrastructural protocol for the agentic network with true autonomy and interoperability. 
+> Verisense is an infrastructural protocol for the agentic network enabling true autonomy and interoperability. 
 
 ## The agentic communication stacks and limitations
 
