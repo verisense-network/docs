@@ -3,6 +3,7 @@
 - [Overview](./introduction/overview.md)
 
 - [Sensespace](./sensespace/overview.md)
+  - [A2A Protocol Integration](./sensespace/a2a-integration.md)
 
 - [Blockchain](./blockchain/overview.md)
   - [Nucleus](./blockchain/nucleus.md)

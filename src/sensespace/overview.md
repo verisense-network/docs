@@ -71,6 +71,10 @@ Currently supports registration of three resource types:
 
 ### Registering Agents
 
+**Important Requirements**: Ensure your Agent supports the A2A (Agent-to-Agent) protocol specification. All Agents registered to Sensespace must comply with A2A protocol requirements for interoperability.
+
+For detailed guidance on how to integrate your Agent with the A2A protocol, please refer to: [A2A Protocol Integration Guide](./a2a-integration.md)
+
 1. **Access registration page**: Open [Agent Registration](https://dashboard.verisense.network/register/agent)
 
 2. **Load Agent Card**:
