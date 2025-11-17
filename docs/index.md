@@ -1,4 +1,4 @@
-# Verisense Docs
+# Verisense Documents
 
 - [Overview](./introduction/overview.md)
 - [Sense Space](./sensespace/overview.md)

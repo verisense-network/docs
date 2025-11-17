@@ -1,0 +1,7 @@
+site_name: Verisense Documents
+theme: readthedocs
+
+nav:
+  - Overview: introduction/overview.md
+  - SenseSpace: sensespace/overview.md
+  - Blockchain: blockchain/overview.md
