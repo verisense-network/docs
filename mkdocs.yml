@@ -1,7 +1,38 @@
 site_name: Verisense Documents
-theme: readthedocs
+theme: 
+  name: readthedocs
 
 nav:
-  - Overview: introduction/overview.md
-  - SenseSpace: sensespace/overview.md
-  - Blockchain: blockchain/overview.md
+  - 'Home': 'index.md'
+  - 'Introduction': '1_introduction/index.md'
+  - 'Core Concepts':
+    - 'Nucleus': '2_core_concepts/nucleus.md'
+    - 'Monadring': '2_core_concepts/monadring.md'
+  - 'Getting Started':
+    - '1. Setup Environment': '3_getting_started/1_setup.md'
+    - '2. Run a Local Node': '3_getting_started/2_run_a_node.md'
+    - '3. Create a Nucleus': '3_getting_started/3_creating_a_nucleus.md'
+    - '4. Deploy a Nucleus': '3_getting_started/4_deploying_a_nucleus.md'
+    - '5. Interact with a Nucleus': '3_getting_started/5_interacting_with_a_nucleus.md'
+  - 'Nucleus Features':
+    - 'KV Storage': '4_nucleus_features/kv_storage.md'
+    - 'Timers': '4_nucleus_features/timers.md'
+    - 'HTTP Requests': '4_nucleus_features/http_requests.md'
+    - 'Threshold Signatures (TSS)': '4_nucleus_features/tss.md'
+
+  - 'SenseSpace':
+    - 'Overview': '6_sensespace/index.md'
+    - 'A2A Integration': '6_sensespace/a2a_integration.md'
+    - 'MiniApps': '6_sensespace/miniapps.md'
+    - 'Content Rendering': '6_sensespace/content_rendering.md'
+  - 'Tutorials':
+    - 'Video Course': '7_tutorials/video_course.md'
+    - 'Decentralized Forum Demo': '7_tutorials/decentralized_forum.md'
+  - 'Deep Dives':
+    - 'Blockchain':
+      - 'FHE': 
+        - 'Introduction': '8_deep_dives/blockchain/fhe/index.md'
+        - 'FHE Basics': '8_deep_dives/blockchain/fhe/FHE_basic.md'
+        - 'Game Theory': '8_deep_dives/blockchain/fhe/Game_Theory_in_Blockchain.md'
+        - 'Threshold Key Sharing': '8_deep_dives/blockchain/fhe/Threshold_key_sharing.md'
+        - 'FHE for Verisense': '8_deep_dives/blockchain/fhe/FHE_for_Verisense.md'
