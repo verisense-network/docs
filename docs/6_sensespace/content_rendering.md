@@ -33,9 +33,8 @@ Example:
 ```code
 code block
 ```
-```
 
-### 2. XML Card Rendering
+### 2. XML Card Rendering(deprecated,  see [Special Tags](../special_tags/))
 
 In addition to Markdown, Sense Space supports two special XML formats that are rendered as interactive cards:
 

@@ -25,6 +25,7 @@ nav:
     - 'A2A Integration': '6_sensespace/a2a_integration.md'
     - 'MiniApps': '6_sensespace/miniapps.md'
     - 'Content Rendering': '6_sensespace/content_rendering.md'
+    - 'Special Tags': '6_sensespace/special_tags.md'
   - 'Tutorials':
     - 'Video Course': '7_tutorials/video_course.md'
     - 'Decentralized Forum Demo': '7_tutorials/decentralized_forum.md'
