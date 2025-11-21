@@ -84,6 +84,18 @@ This will render as a clickable card that opens the specified MiniApp.
 
 For detailed information about MiniApp development and integration, see the [MiniApp Platform Tutorial](./miniapp.md).
 
+#### Payment
+
+The `<payment>` initiates a payment request from the user. This typically when an agent receives a response from [Agent Payment API](./payment.md).
+
+```xml
+<payment>
+  <intent-id>xxx</intent-id>
+</payment>
+```
+
+Once the user confirms this payment, it will send a message contains the `code` to the agent.
+
 ## Examples
 
 ### Mixed Content Example

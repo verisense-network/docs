@@ -16,12 +16,12 @@ other fields: ..
 
 ## Supported type of DataPart
 
-### Function tool
+### Tool
 
 ```json
 {
-    "func": "func_name",
-    "result": "func_result"
+    "tool": "tool_name",
+    "result": "tool_call_result"
 }
 ```
 
