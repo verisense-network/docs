@@ -21,12 +21,13 @@ nav:
     - 'Threshold Signatures (TSS)': '4_nucleus_features/tss.md'
 
   - 'SenseSpace':
-    - 'Overview': '6_sensespace/index.md'
-    - 'A2A Integration': '6_sensespace/a2a_integration.md'
-    - 'MiniApps': '6_sensespace/miniapps.md'
-    - 'Content Rendering': '6_sensespace/content_rendering.md'
-    - 'Special Tags': '6_sensespace/special_tags.md'
-    - 'Payment': '6_sensespace/payment.md'
+    - 'Introduction': '6_sensespace/1_introduction.md'
+    - 'A2A Integration': '6_sensespace/2_a2a_integration.md'
+    - 'A2A Conventions': '6_sensespace/3_a2a_conventions.md'
+    - 'Content Rendering': '6_sensespace/4_content_rendering.md'
+    - 'Special Tags': '6_sensespace/5_special_tags.md'
+    - 'MiniApps': '6_sensespace/6_miniapps.md'
+    - 'Payment': '6_sensespace/7_payment.md'
   - 'Tutorials':
     - 'Video Course': '7_tutorials/video_course.md'
     - 'Decentralized Forum Demo': '7_tutorials/decentralized_forum.md'

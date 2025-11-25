@@ -36,7 +36,7 @@ code block
 
 ### 2. XML Card Rendering(deprecated,  see [Special Tags](../special_tags/))
 
-In addition to Markdown, Sense Space supports two special XML formats that are rendered as interactive cards:
+In addition to Markdown, SenseSpace supports special XML tags in the A2A `Message::TextPart` to support rich-featured interaction.
 
 #### Tool Card
 
