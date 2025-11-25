@@ -67,10 +67,7 @@ Users could click the miniapp button and load the external link.
 {
     "type": "payment",
     "payload": {
-        "currency": "USD",
-        "amount": 10.09,
-        "intent_id": "...",
-        "reason": "..."
+        "intent_id": "..."
     }
 }
 ```
