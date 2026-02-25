@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Threshold Key Sharing - Verisense Documents</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Threshold Key Sharing";
+        var mkdocs_page_input_path = "8_deep_dives/blockchain/fhe/Threshold_key_sharing.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> Verisense Documents
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../1_introduction/">Introduction</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../2_core_concepts/nucleus/">Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../2_core_concepts/monadring/">Monadring</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../3_getting_started/1_setup/">1. Setup Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../3_getting_started/2_run_a_node/">2. Run a Local Node</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../3_getting_started/3_creating_a_nucleus/">3. Create a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../3_getting_started/4_deploying_a_nucleus/">4. Deploy a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../3_getting_started/5_interacting_with_a_nucleus/">5. Interact with a Nucleus</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Nucleus Features</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../4_nucleus_features/kv_storage/">KV Storage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../4_nucleus_features/timers/">Timers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../4_nucleus_features/http_requests/">HTTP Requests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../4_nucleus_features/tss/">Threshold Signatures (TSS)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SenseSpace</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../6_sensespace/1_introduction/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../6_sensespace/2_a2a_integration/">A2A Integration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../6_sensespace/3_a2a_conventions/">A2A Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../6_sensespace/4_content_rendering/">Content Rendering</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../6_sensespace/5_special_tags/">Special Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../6_sensespace/6_miniapps/">MiniApps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../6_sensespace/7_payment/">Payment</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../7_tutorials/video_course/">Video Course</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../7_tutorials/decentralized_forum/">Decentralized Forum Demo</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Deep Dives</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Blockchain</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >FHE</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" href="../">Introduction</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../FHE_basic/">FHE Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../Game_Theory_in_Blockchain/">Game Theory</a>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">Threshold Key Sharing</a>
+    <ul class="current">
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../FHE_for_Verisense/">FHE for Verisense</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">Verisense Documents</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Deep Dives</li>
+          <li class="breadcrumb-item">Blockchain</li>
+          <li class="breadcrumb-item">FHE</li>
+      <li class="breadcrumb-item active">Threshold Key Sharing</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="threshold-key-sharing-based-on-shamir-secret-sharing">Threshold Key Sharing based on Shamir  Secret Sharing</h2>
+<p>Shamir's Secret Sharing is an algorithm in cryptography devised by Adi Shamir. It's a form of secret sharing, where a secret is divided into parts, giving each participant its own unique part. The unique feature of the algorithm is the minimal amount of parts, or shares, needed to reconstruct the secret.
+Here's a simple walkthrough of how Shamir's Secret Sharing can be used for threshold private key sharing:
+1. Choose the Threshold: Define the threshold number \(t\) below which knowing \(t\) points gives no information about the secret, but \( t \) points yields the secret.
+2.  Generate a Polynomial: Generate a random polynomial of degree \(t-1\) with the constant term being the secret (private key) to be shared. i.e. \[ f(x)=a_0+a_1x+a_2x^2+\ldots+a_{t-1}x^{t-1} \]
+3.  Create Shares: Evaluate the polynomial at different points to get \(n\) shares, where \(n\) is the total number of participants. Each participant is given one share, which is a point on the polynomial. i.e. \[\mathcal{s}<em>i=f(x_i)\]
+4.  Distribute the Shares: The shares of the private key are then distributed among the participants. The key property here is that any \(t\) shares (points) are enough to reconstruct the polynomial (and hence discover the secret), whereas \(t-1\) or fewer shares reveal no information about the secret.
+5.  Reconstruct the Secret: When the need arises to use the private key (secret), any \(t\) participants come together and combine their shares using polynomial interpolation (for example, via Lagrange interpolation) to reconstruct the polynomial and discover the constant term, which is the secret.
+\[ f(x)=\sum^{t-1}</em>{i=0} s_i \prod_j \frac{x-s_j}{s_i-s_j} \]
+It is worth noting that all polynomials are defined over the ring of polynomials in \((\mathbb{Z}/p\mathbb{Z})[X]/X^{t}\) and the Lagrange interpolation still holds.</p>
+<p>This way, the private key (secret) is never explicitly revealed to any single party and no single party can access the secret alone. This is particularly useful in managing the risks associated with key management in cryptographic systems. It provides a balance between accessibility (through the threshold number of participants) and security (no single point of failure).</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Game_Theory_in_Blockchain/" class="btn btn-neutral float-left" title="Game Theory"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../FHE_for_Verisense/" class="btn btn-neutral float-right" title="FHE for Verisense">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Game_Theory_in_Blockchain/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../FHE_for_Verisense/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

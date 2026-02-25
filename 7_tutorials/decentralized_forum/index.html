@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Decentralized Forum Demo - Verisense Documents</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Decentralized Forum Demo";
+        var mkdocs_page_input_path = "7_tutorials/decentralized_forum.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Verisense Documents
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../1_introduction/">Introduction</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2_core_concepts/nucleus/">Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2_core_concepts/monadring/">Monadring</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/1_setup/">1. Setup Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/2_run_a_node/">2. Run a Local Node</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/3_creating_a_nucleus/">3. Create a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/4_deploying_a_nucleus/">4. Deploy a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/5_interacting_with_a_nucleus/">5. Interact with a Nucleus</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Nucleus Features</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/kv_storage/">KV Storage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/timers/">Timers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/http_requests/">HTTP Requests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/tss/">Threshold Signatures (TSS)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SenseSpace</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/1_introduction/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/2_a2a_integration/">A2A Integration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/3_a2a_conventions/">A2A Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/4_content_rendering/">Content Rendering</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/5_special_tags/">Special Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/6_miniapps/">MiniApps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/7_payment/">Payment</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../video_course/">Video Course</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Decentralized Forum Demo</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#avs">AVS</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#create-an-empty-project">Create an empty project</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#define-models">Define models</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#implement-business">Implement business</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#compile-to-wasm">Compile to wasm</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#deploy-it-to-the-verisense">Deploy it to the Verisense</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#surrogate">Surrogate</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#meilisearch">MeiliSearch</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#front-end">Front-end</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-it-looks-like">What It Looks Like</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Deep Dives</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Blockchain</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >FHE</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/">Introduction</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/FHE_basic/">FHE Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/Game_Theory_in_Blockchain/">Game Theory</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/Threshold_key_sharing/">Threshold Key Sharing</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/FHE_for_Verisense/">FHE for Verisense</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Verisense Documents</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Tutorials</li>
+      <li class="breadcrumb-item active">Decentralized Forum Demo</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="demo-a-decentralized-forum">Demo: A Decentralized Forum</h2>
+<p>In this tutorial, I will guide you through the process of building a decentralized forum on Verisense.</p>
+<p>To develop a decentralized application (dApp) on Verisense, you'll need to implement four main components:</p>
+<ol>
+<li>
+<p><strong>AVS</strong>: This is a compiled WASM file created using the <code>vrs-core-sdk</code>. The front-end interacts with this component to write data.</p>
+</li>
+<li>
+<p><strong>Surrogate</strong>: This is a proxy program responsible for syncing the latest data from the AVS and pushing it to MeiliSearch for efficient searching.</p>
+</li>
+<li>
+<p><strong>MeiliSearch</strong>: A fast and powerful search engine that will handle data queries from the front-end, enabling a seamless search experience.</p>
+</li>
+<li>
+<p><strong>Front-end app</strong>: This is the user-facing interface that allows interaction with the forum.</p>
+</li>
+</ol>
+<p>The <strong>AVS</strong> will be deployed on Verisense, while the <strong>Surrogate</strong> and <strong>MeiliSearch</strong> instances will be deployed on the same server node where Verisense is running.</p>
+<p>Before we begin, please ensure that you have all the required tools installed.</p>
+<h3 id="avs">AVS</h3>
+<h4 id="create-an-empty-project">Create an empty project</h4>
+<p>First, create a new Rust project,</p>
+<pre><code>cargo new --lib veavs
+</code></pre>
+<p>Put these into the <code>Cargo.toml</code>.</p>
+<pre><code>[package]
+name = &quot;veavs&quot;
+version = &quot;0.1.0&quot;
+edition = &quot;2021&quot;
+
+[lib]
+crate-type = [&quot;cdylib&quot;]
+
+[dependencies]
+vrs-core-sdk = { git = &quot;https://github.com/verisense-network/verisense.git&quot;, package = &quot;vrs-core-sdk&quot; }
+parity-scale-codec = { version = &quot;3.6&quot;, features = [&quot;derive&quot;] }
+
+vemodel = { path = &quot;../vemodel&quot; }
+</code></pre>
+<p>You can refer to the original file content <a href="https://github.com/verisense-network/veforum/blob/main/veavs/Cargo.toml">here</a>.</p>
+<h4 id="define-models">Define models</h4>
+<p>For a decentralized forum, we need to define the following models:</p>
+<pre><code>use parity_scale_codec::{Decode, Encode};
+use serde::{Deserialize, Serialize};
+
+#[derive(Debug, Decode, Encode, Deserialize, Serialize)]
+pub enum Method {
+    Create,
+    Update,
+    Delete,
+}
+
+#[derive(Debug, Decode, Encode, Deserialize, Serialize)]
+pub struct VeSubspace {
+    pub id: u64,
+    pub title: String,
+    pub slug: String,
+    pub description: String,
+    pub banner: String,
+    pub status: i16,
+    pub weight: i16,
+    pub created_time: i64,
+}
+
+#[derive(Debug, Decode, Encode, Deserialize, Serialize)]
+pub struct VeArticle {
+    pub id: u64,
+    pub title: String,
+    pub content: String,
+    pub author_id: u64,
+    pub author_nickname: String,
+    pub subspace_id: u64,
+    pub ext_link: String,
+    pub status: i16,
+    pub weight: i16,
+    pub created_time: i64,
+    pub updated_time: i64,
+}
+
+#[derive(Debug, Decode, Encode, Deserialize, Serialize)]
+pub struct VeComment {
+    pub id: u64,
+    pub content: String,
+    pub author_id: u64,
+    pub author_nickname: String,
+    pub post_id: u64,
+    pub status: i16,
+    pub weight: i16,
+    pub created_time: i64,
+}
+</code></pre>
+<p>You can refer to the original file content <a href="https://github.com/verisense-network/veforum/blob/main/vemodel/src/lib.rs">here</a>.</p>
+<h4 id="implement-business">Implement business</h4>
+<p>We will implement CRUD actions on each model.</p>
+<pre><code>// subspace
+#[post]
+pub fn add_subspace(mut sb: VeSubspace) -&gt; Result&lt;(), String&gt; {
+    let max_id = get_max_id(PREFIX_SUBSPACE_KEY);
+    // update the id field from the avs
+    sb.id = max_id;
+    let key = build_key(PREFIX_SUBSPACE_KEY, max_id);
+    storage::put(&amp;key, sb.encode()).map_err(|e| e.to_string())?;
+
+    add_to_common_key(Method::Create, key)?;
+
+    Ok(())
+}
+
+#[post]
+pub fn update_subspace(sb: VeSubspace) -&gt; Result&lt;(), String&gt; {
+    let id = sb.id;
+    let key = build_key(PREFIX_SUBSPACE_KEY, id);
+    storage::put(&amp;key, sb.encode()).map_err(|e| e.to_string())?;
+
+    add_to_common_key(Method::Update, key)?;
+
+    Ok(())
+}
+
+#[post]
+pub fn delete_subspace(id: u64) -&gt; Result&lt;(), String&gt; {
+    let key = build_key(PREFIX_SUBSPACE_KEY, id);
+    storage::del(&amp;key).map_err(|e| e.to_string())?;
+
+    add_to_common_key(Method::Delete, key)?;
+
+    Ok(())
+}
+
+#[get]
+pub fn get_subspace(id: u64) -&gt; Result&lt;Option&lt;VeSubspace&gt;, String&gt; {
+    let key = build_key(PREFIX_SUBSPACE_KEY, id);
+    let r = storage::get(&amp;key).map_err(|e| e.to_string())?;
+    let instance = r.map(|d| VeSubspace::decode(&amp;mut &amp;d[..]).unwrap());
+    Ok(instance)
+}
+
+// article
+#[post]
+pub fn add_article(mut sb: VeArticle) -&gt; Result&lt;(), String&gt; {
+    let max_id = get_max_id(PREFIX_ARTICLE_KEY);
+    // update the id field from the avs
+    sb.id = max_id;
+    let key = build_key(PREFIX_ARTICLE_KEY, max_id);
+    storage::put(&amp;key, sb.encode()).map_err(|e| e.to_string())?;
+    add_to_common_key(Method::Create, key)?;
+
+    Ok(())
+}
+
+#[post]
+pub fn update_article(sb: VeArticle) -&gt; Result&lt;(), String&gt; {
+    let id = sb.id;
+    let key = build_key(PREFIX_ARTICLE_KEY, id);
+    storage::put(&amp;key, sb.encode()).map_err(|e| e.to_string())?;
+    add_to_common_key(Method::Update, key)?;
+
+    Ok(())
+}
+
+#[post]
+pub fn delete_article(id: u64) -&gt; Result&lt;(), String&gt; {
+    let key = build_key(PREFIX_ARTICLE_KEY, id);
+    storage::del(&amp;key).map_err(|e| e.to_string())?;
+    add_to_common_key(Method::Delete, key)?;
+
+    Ok(())
+}
+
+#[get]
+pub fn get_article(id: u64) -&gt; Result&lt;Option&lt;VeArticle&gt;, String&gt; {
+    let key = build_key(PREFIX_ARTICLE_KEY, id);
+    let r = storage::get(&amp;key).map_err(|e| e.to_string())?;
+    let instance = r.map(|d| VeArticle::decode(&amp;mut &amp;d[..]).unwrap());
+    Ok(instance)
+}
+
+// comment
+#[post]
+pub fn add_comment(mut sb: VeComment) -&gt; Result&lt;(), String&gt; {
+    let max_id = get_max_id(PREFIX_COMMENT_KEY);
+    // update the id field from the avs
+    sb.id = max_id;
+    let key = build_key(PREFIX_COMMENT_KEY, max_id);
+    storage::put(&amp;key, sb.encode()).map_err(|e| e.to_string())?;
+    add_to_common_key(Method::Create, key)?;
+
+    Ok(())
+}
+
+#[post]
+pub fn update_comment(sb: VeComment) -&gt; Result&lt;(), String&gt; {
+    let id = sb.id;
+    let key = build_key(PREFIX_COMMENT_KEY, id);
+    storage::put(&amp;key, sb.encode()).map_err(|e| e.to_string())?;
+    add_to_common_key(Method::Update, key)?;
+
+    Ok(())
+}
+
+#[post]
+pub fn delete_comment(id: u64) -&gt; Result&lt;(), String&gt; {
+    let key = build_key(PREFIX_COMMENT_KEY, id);
+    storage::del(&amp;key).map_err(|e| e.to_string())?;
+    add_to_common_key(Method::Delete, key)?;
+
+    Ok(())
+}
+
+#[get]
+pub fn get_comment(id: u64) -&gt; Result&lt;Option&lt;VeComment&gt;, String&gt; {
+    let key = build_key(PREFIX_COMMENT_KEY, id);
+    let r = storage::get(&amp;key).map_err(|e| e.to_string())?;
+    let instance = r.map(|d| VeComment::decode(&amp;mut &amp;d[..]).unwrap());
+    Ok(instance)
+}
+</code></pre>
+<p>You can find the full code <a href="https://github.com/verisense-network/veforum/blob/main/veavs">here</a>.</p>
+<h4 id="compile-to-wasm">Compile to wasm</h4>
+<p>In the root of this project, run:</p>
+<pre><code>cargo build --release --target wasm32-unknown-unknown
+</code></pre>
+<p>You can find the compiled wasm file located at <code>target/wasm32-unknown-unknown/release/veavs.wasm</code>.</p>
+<h4 id="deploy-it-to-the-verisense">Deploy it to the Verisense</h4>
+<p>Register a new AVS protocol on Verisense.</p>
+<pre><code>vrx nucleus create veavs --capacity 1
+</code></pre>
+<p>This command will return the registered AVS (nucleus) ID like:</p>
+<pre><code>Nucleus created.
+  id: 5FsXfPrUDqq6abYccExCTUxyzjYaaYTr5utLx2wwdBv1m8R8
+  name: hello_avs
+  capacity: 1
+</code></pre>
+<p>Deply the generated wasm file to Verisense using the generated Nucleus ID.</p>
+<pre><code>vrx deploy --name veavs --wasm-path ../target/wasm32-unknown-unknown/release/veavs.wasm --nucleus-id 5FsXfPrUDqq6abYccExCTUxyzjYaaYTr5utLx2wwdBv1m8R8  --version 1
+</code></pre>
+<p>Wait for the process to complete successfully.</p>
+<p>At this point, we have successfully deployed a new <strong>AVS</strong> onto Verisense.</p>
+<h3 id="surrogate">Surrogate</h3>
+<p>The AVS functions as a raw database, but to make use of this data, we need to create a proxy that will index the data into the <strong>MeiliSearch</strong> engine.</p>
+<p>You can check out the surrogate implementation <a href="https://github.com/verisense-network/veforum/blob/main/surrogate/src/main.rs">here</a>.</p>
+<p>The basic concept behind the surrogate is to retrieve data from the AVS and inject it into MeiliSearch for efficient indexing and searching.</p>
+<h3 id="meilisearch">MeiliSearch</h3>
+<p>MeiliSearch provides a standardized approach for handling data queries.</p>
+<p>You can find the API documentation <a href="https://www.meilisearch.com/docs/reference/api/search">here</a>.</p>
+<h3 id="front-end">Front-end</h3>
+<p>You can find the reference code for the front-end <a href="https://github.com/verisense-network/veforum-frontend">here</a>.</p>
+<p>In the front-end application, the logic involves writing data to the <strong>AVS</strong> and querying data from <strong>MeiliSearch</strong> to display the results.</p>
+<h3 id="what-it-looks-like">What It Looks Like</h3>
+<p>For a preview of the app in action, check out this <a href="https://www.youtube.com/watch?v=Clb5NqqYUPk">video</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../video_course/" class="btn btn-neutral float-left" title="Video Course"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../8_deep_dives/blockchain/fhe/" class="btn btn-neutral float-right" title="Introduction">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../video_course/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../8_deep_dives/blockchain/fhe/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

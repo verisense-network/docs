@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Timers - Verisense Documents</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Timers";
+        var mkdocs_page_input_path = "4_nucleus_features/timers.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Verisense Documents
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../1_introduction/">Introduction</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2_core_concepts/nucleus/">Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2_core_concepts/monadring/">Monadring</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/1_setup/">1. Setup Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/2_run_a_node/">2. Run a Local Node</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/3_creating_a_nucleus/">3. Create a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/4_deploying_a_nucleus/">4. Deploy a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/5_interacting_with_a_nucleus/">5. Interact with a Nucleus</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Nucleus Features</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../kv_storage/">KV Storage</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Timers</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#init-initialization-hook">#[init]: Initialization Hook</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#set_timer-and-timer-scheduling-timers">set_timer! and #[timer]: Scheduling Timers</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-usage">Basic Usage</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#implementing-intervals-recurring-timers">Implementing Intervals (Recurring Timers)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../http_requests/">HTTP Requests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tss/">Threshold Signatures (TSS)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SenseSpace</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/1_introduction/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/2_a2a_integration/">A2A Integration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/3_a2a_conventions/">A2A Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/4_content_rendering/">Content Rendering</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/5_special_tags/">Special Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/6_miniapps/">MiniApps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/7_payment/">Payment</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../7_tutorials/video_course/">Video Course</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../7_tutorials/decentralized_forum/">Decentralized Forum Demo</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Deep Dives</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Blockchain</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >FHE</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/">Introduction</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/FHE_basic/">FHE Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/Game_Theory_in_Blockchain/">Game Theory</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/Threshold_key_sharing/">Threshold Key Sharing</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/FHE_for_Verisense/">FHE for Verisense</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Verisense Documents</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Nucleus Features</li>
+      <li class="breadcrumb-item active">Timers</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="timer">Timer</h2>
+<p>Verisense provides a powerful timer module that enables developers to schedule delayed or recurring function executions. The module consists of:</p>
+<ul>
+<li><code>#[init]</code></li>
+<li><code>#[timer]</code></li>
+<li><code>set_timer!()</code></li>
+</ul>
+<hr />
+<h3 id="init-initialization-hook"><code>#[init]</code>: Initialization Hook</h3>
+<p>A Rust function decorated with the <code>#[init]</code> attribute macro serves as a special initialization handler. This function is automatically invoked when a new version of the WASM module is deployed or upgraded.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-rust">#[init]
+pub fn timer_init() {
+    storage::put(b&quot;delay&quot;, format!(&quot;init&quot;).as_bytes());
+}
+</code></pre>
+<p>In this example, <code>timer_init()</code> will be called automatically upon deployment of a new AVS WASM version, allowing you to perform any necessary initialization tasks.</p>
+<hr />
+<h3 id="set_timer-and-timer-scheduling-timers"><code>set_timer!</code> and <code>#[timer]</code>: Scheduling Timers</h3>
+<p>The <code>set_timer!</code> macro is used to schedule a new timer that triggers a handler function after a specified delay. Its syntax is:</p>
+<pre><code class="language-rust">set_timer!(Duration, timer_handler(params));
+</code></pre>
+<h4 id="basic-usage">Basic Usage</h4>
+<pre><code class="language-rust">#[post]
+pub fn test_set_timer() {
+    storage::put(b&quot;delay&quot;, format!(&quot;init&quot;).as_bytes());
+
+    let a = &quot;abc&quot;.to_string();
+    let b = 123;
+
+    set_timer!(std::time::Duration::from_secs(4), test_delay(a, b));
+}
+
+#[timer]
+pub fn test_delay(a: String, b: i32) {
+    storage::put(b&quot;delay&quot;, format!(&quot;delay_complete {} {}&quot;, a, b).as_bytes()).unwrap();
+}
+</code></pre>
+<p>In this example:</p>
+<ul>
+<li>The <code>test_set_timer</code> function sets a timer that will trigger after 4 seconds.</li>
+<li>When the timer fires, the <code>test_delay</code> function is executed with the provided arguments.</li>
+<li>All timer handler functions must be decorated with the <code>#[timer]</code> attribute.</li>
+</ul>
+<p>The <code>set_timer!</code> macro allows you to directly pass arguments to the timer handler, which are safely serialized and deserialized by the runtime.</p>
+<hr />
+<h3 id="implementing-intervals-recurring-timers">Implementing Intervals (Recurring Timers)</h3>
+<p>By default, <code>set_timer!</code> schedules one-shot timers. To implement periodic execution (intervals), you can schedule the next timer within the timer handler itself, effectively creating a recursive loop.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-rust">#[post]
+pub fn test_set_timer() {
+    set_timer!(std::time::Duration::from_secs(2), run_interval());
+}
+
+#[timer]
+pub fn run_interval() {
+    // Business logic executed on each interval
+    storage::put(b&quot;interval&quot;, b&quot;running&quot;);
+
+    // Schedule the next execution
+    set_timer!(std::time::Duration::from_secs(1), run_interval());
+}
+</code></pre>
+<p>In this pattern:</p>
+<ol>
+<li>An initial timer is set to trigger after 2 seconds.</li>
+<li>Inside <code>run_interval</code>, your business logic is executed.</li>
+<li>At the end of each execution, a new timer is scheduled to run after 1 second.</li>
+<li>This creates a continuous periodic execution loop.</li>
+</ol>
+<p>This recursive approach allows you to implement interval-like behavior without native interval support.</p>
+<hr />
+<h3 id="summary">Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>#[init]</code></td>
+<td>Automatically called on WASM deployment or upgrade for initialization tasks.</td>
+</tr>
+<tr>
+<td><code>set_timer!()</code></td>
+<td>Schedules a one-shot timer to invoke a handler after a specified delay.</td>
+</tr>
+<tr>
+<td><code>#[timer]</code></td>
+<td>Marks a function as a valid timer handler callable by the runtime.</td>
+</tr>
+<tr>
+<td>Intervals</td>
+<td>Achieved by recursively scheduling timers within timer handlers.</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../kv_storage/" class="btn btn-neutral float-left" title="KV Storage"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../http_requests/" class="btn btn-neutral float-right" title="HTTP Requests">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../kv_storage/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../http_requests/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

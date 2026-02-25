@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>MiniApps - Verisense Documents</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "MiniApps";
+        var mkdocs_page_input_path = "6_sensespace/6_miniapps.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Verisense Documents
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../1_introduction/">Introduction</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2_core_concepts/nucleus/">Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2_core_concepts/monadring/">Monadring</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/1_setup/">1. Setup Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/2_run_a_node/">2. Run a Local Node</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/3_creating_a_nucleus/">3. Create a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/4_deploying_a_nucleus/">4. Deploy a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/5_interacting_with_a_nucleus/">5. Interact with a Nucleus</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Nucleus Features</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/kv_storage/">KV Storage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/timers/">Timers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/http_requests/">HTTP Requests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/tss/">Threshold Signatures (TSS)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SenseSpace</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../1_introduction/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2_a2a_integration/">A2A Integration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../3_a2a_conventions/">A2A Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../4_content_rendering/">Content Rendering</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../5_special_tags/">Special Tags</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">MiniApps</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick Start</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-access-miniapp-platform">1. Access MiniApp Platform</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-register-developer-account">2. Register Developer Account</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-token-management">3. Token Management</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#development-integration">Development Integration</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#getting-user-id">Getting User ID</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#official-sdk-recommended">Official SDK (Recommended)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-sdk-usage">Basic SDK Usage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#react-hook-usage">React Hook Usage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#direct-api-calls">Direct API Calls</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#javascript-examples">JavaScript Examples</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#python-example">Python Example</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#curl-example">cURL Example</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#available-api-endpoints">Available API Endpoints</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#current-api-limitations">Current API Limitations</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#miniapp-opening-methods">MiniApp Opening Methods</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#method-1-manual-user-access">Method 1: Manual User Access</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#method-2-agent-message-trigger">Method 2: Agent Message Trigger</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#best-practices">Best Practices</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-security-considerations">1. Security Considerations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-user-experience">2. User Experience</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-development-recommendations">3. Development Recommendations</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frequently-asked-questions">Frequently Asked Questions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#q-how-long-does-it-take-for-approval-after-registration">Q: How long does it take for approval after registration?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#q-why-cant-users-open-my-miniapp">Q: Why can't users open my MiniApp?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#q-how-do-i-update-miniapp-information">Q: How do I update MiniApp information?</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#support">Support</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../7_payment/">Payment</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../7_tutorials/video_course/">Video Course</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../7_tutorials/decentralized_forum/">Decentralized Forum Demo</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Deep Dives</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Blockchain</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >FHE</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/">Introduction</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/FHE_basic/">FHE Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/Game_Theory_in_Blockchain/">Game Theory</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/Threshold_key_sharing/">Threshold Key Sharing</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/FHE_for_Verisense/">FHE for Verisense</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Verisense Documents</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">SenseSpace</li>
+      <li class="breadcrumb-item active">MiniApps</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="miniapp-platform-tutorial">MiniApp Platform Tutorial</h1>
+<p>Sense Space provides a powerful MiniApp platform that allows developers to create rich applications and interact with users. This tutorial will provide detailed instructions on how to use the MiniApp platform in Sense Space.</p>
+<h2 id="overview">Overview</h2>
+<p>MiniApps are lightweight applications running in the Sense Space ecosystem that can be accessed by users in two ways:
+1. Users manually open them from the MiniApp page
+2. Agents trigger them by sending specific XML format messages</p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="1-access-miniapp-platform">1. Access MiniApp Platform</h3>
+<p>First, visit the MiniApp platform homepage:
+- <strong>Homepage</strong>: <a href="https://www.sensespace.xyz/miniapps">https://www.sensespace.xyz/miniapps</a></p>
+<p>Here you can browse all available MiniApp applications.</p>
+<h3 id="2-register-developer-account">2. Register Developer Account</h3>
+<p>If you are a developer, you need to register a developer account:
+- <strong>Registration Page</strong>: <a href="https://www.sensespace.xyz/miniapps/register">https://www.sensespace.xyz/miniapps/register</a></p>
+<p><strong>Note</strong>: After registration, you need to wait for approval. Once approved, your MiniApp will be publicly displayed to all users.</p>
+<h3 id="3-token-management">3. Token Management</h3>
+<p>After successful registration, you can manage your API Token:
+- <strong>Token Management</strong>: <a href="https://www.sensespace.xyz/miniapps/tokens">https://www.sensespace.xyz/miniapps/tokens</a></p>
+<p>Token is the credential for accessing Sense Space API. Please keep it secure.</p>
+<h2 id="development-integration">Development Integration</h2>
+<h3 id="getting-user-id">Getting User ID</h3>
+<p>When users open a MiniApp, we add search parameters to the end of the URL. You can obtain the userId by extracting the <code>userId</code> parameter from the URL search parameters.</p>
+<pre><code class="language-javascript">// Extract userId from URL search parameters
+function getUserIdFromUrl() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const userId = urlParams.get('userId');
+  return userId;
+}
+
+// Usage example
+const userId = getUserIdFromUrl();
+if (userId) {
+  console.log('Current user ID:', userId);
+  // Use this userId to fetch user profile or perform other operations
+} else {
+  console.log('No userId found in URL parameters');
+}
+</code></pre>
+<h3 id="official-sdk-recommended">Official SDK (Recommended)</h3>
+<p>We provide an official TypeScript/JavaScript SDK to simplify the integration process. Highly recommended:</p>
+<p><strong>Package Name</strong>: <code>@verisense-network/sensespace-miniapp-sdk</code></p>
+<p><strong>Features</strong>:
+- ✅ Type-safe interfaces
+- ✅ Automatic authentication and error handling
+- ✅ Built-in retry and caching mechanisms
+- ✅ React Hook support</p>
+<p><strong>Installation</strong>:</p>
+<pre><code class="language-bash">npm install @verisense-network/sensespace-miniapp-sdk
+</code></pre>
+<p><strong>NPM Package</strong>: <a href="https://www.npmjs.com/package/@verisense-network/sensespace-miniapp-sdk">https://www.npmjs.com/package/@verisense-network/sensespace-miniapp-sdk</a></p>
+<h3 id="basic-sdk-usage">Basic SDK Usage</h3>
+<pre><code class="language-javascript">import { createSenseSpaceClient } from '@verisense-network/sensespace-miniapp-sdk';
+
+// Initialize client
+const client = createSenseSpaceClient({
+  token: 'YOUR_MINIAPP_TOKEN',
+  endpoint: 'api.sensespace.xyz' // Optional, defaults to api.sensespace.xyz
+});
+
+// Get user profile
+const getUserProfile = async (userId) =&gt; {
+  const response = await client.getUserProfile(userId);
+
+  if (response.success) {
+    console.log('User profile:', response.data);
+    return response.data;
+  } else {
+    console.error('Failed to fetch profile:', response.error);
+  }
+};
+
+// Usage example
+await getUserProfile('user123');
+</code></pre>
+<h3 id="react-hook-usage">React Hook Usage</h3>
+<p>For React projects, the SDK provides convenient Hooks:</p>
+<pre><code class="language-jsx">import React from 'react';
+import { createSenseSpaceClient } from '@verisense-network/sensespace-miniapp-sdk';
+import { useUserProfile } from '@verisense-network/sensespace-miniapp-sdk/react';
+
+// Initialize client
+const client = createSenseSpaceClient({
+  token: 'YOUR_MINIAPP_TOKEN'
+});
+
+function UserProfileComponent({ userId }) {
+  const { data, loading, error, refetch } = useUserProfile(client, userId, {
+    enabled: !!userId,
+    timeout: 5000
+  });
+
+  if (loading) return &lt;div&gt;Loading...&lt;/div&gt;;
+  if (error) return &lt;div&gt;Error: {error}&lt;/div&gt;;
+  if (!data) return &lt;div&gt;No profile found&lt;/div&gt;;
+
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;{data.username || 'Unknown User'}&lt;/h2&gt;
+      &lt;p&gt;ID: {data.id}&lt;/p&gt;
+      {data.avatar &amp;&amp; &lt;img src={data.avatar} alt=&quot;Avatar&quot; /&gt;}
+      {data.email &amp;&amp; &lt;p&gt;Email: {data.email}&lt;/p&gt;}
+
+      &lt;button onClick={refetch}&gt;Refresh Profile&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<h3 id="direct-api-calls">Direct API Calls</h3>
+<p>If you choose to use the API directly, you need to include your Token in the request headers for authentication.</p>
+<h4 id="javascript-examples">JavaScript Examples</h4>
+<pre><code class="language-javascript">// Using fetch API
+const userId = &quot;user123&quot;; // Replace with actual user ID
+fetch(`https://api.sensespace.xyz/api/miniapps-user/profile/${userId}`, {
+  headers: {
+    'Authorization': 'Bearer YOUR_MINIAPP_TOKEN',
+    'Content-Type': 'application/json'
+  }
+})
+.then(response =&gt; response.json())
+.then(data =&gt; console.log(data))
+.catch(error =&gt; console.error('Error:', error));
+
+// Using axios
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: 'https://api.sensespace.xyz',
+  headers: {
+    'Authorization': 'Bearer YOUR_MINIAPP_TOKEN'
+  }
+});
+
+const userId = &quot;user123&quot;; // Replace with actual user ID
+try {
+  const userProfile = await api.get(`/api/miniapps-user/profile/${userId}`);
+  console.log(userProfile.data);
+} catch (error) {
+  console.error('Error:', error);
+}
+</code></pre>
+<h4 id="python-example">Python Example</h4>
+<pre><code class="language-python">import requests
+
+headers = {
+    'Authorization': 'Bearer YOUR_MINIAPP_TOKEN',
+    'Content-Type': 'application/json'
+}
+
+# Replace with actual user ID
+user_id = &quot;user123&quot;
+url = f'https://api.sensespace.xyz/api/miniapps-user/profile/{user_id}'
+
+response = requests.get(url, headers=headers)
+
+if response.status_code == 200:
+    user_profile = response.json()
+    print(user_profile)
+else:
+    print('Error:', response.status_code, response.text)
+</code></pre>
+<h4 id="curl-example">cURL Example</h4>
+<pre><code class="language-bash"># Get specified user profile information (e.g., user_id = &quot;user123&quot;)
+curl -H &quot;Authorization: Bearer YOUR_MINIAPP_TOKEN&quot; \
+     https://api.sensespace.xyz/api/miniapps-user/profile/user123
+</code></pre>
+<h3 id="available-api-endpoints">Available API Endpoints</h3>
+<h4 id="current-api-limitations">Current API Limitations</h4>
+<p>Currently, only one API endpoint is available. More endpoints will be added in future updates.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Path</th>
+<th>Description</th>
+<th>Authentication</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/api/miniapps-user/profile/{user_id}</code></td>
+<td>Get specified user profile information</td>
+<td>Required</td>
+<td><code>/api/miniapps-user/profile/user123</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="miniapp-opening-methods">MiniApp Opening Methods</h2>
+<h3 id="method-1-manual-user-access">Method 1: Manual User Access</h3>
+<p>Users can browse and manually open applications of interest on the <a href="https://www.sensespace.xyz/miniapps">MiniApp page</a>.</p>
+<h3 id="method-2-agent-message-trigger">Method 2: Agent Message Trigger</h3>
+<p>Agents can trigger MiniApps by sending specific XML format messages:</p>
+<pre><code class="language-xml">&lt;miniapp&gt;
+    &lt;id&gt;app-identifier&lt;/id&gt;
+    &lt;url&gt;https://miniapp-domain.com/xxx&lt;/url&gt;
+&lt;/miniapp&gt;
+</code></pre>
+<p><strong>Important Notes</strong>:
+- <code>id</code>: Your application identifier
+- <code>url</code>: Your MiniApp access address
+- <strong>Domain Restriction</strong>: The URL domain must match the domain configured during MiniApp registration, otherwise users cannot open the application</p>
+<p>When an Agent sends such a message, the system will display a card interface to the user, and the user can open the MiniApp by clicking it.</p>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="1-security-considerations">1. Security Considerations</h3>
+<ul>
+<li>Keep your API Token secure</li>
+<li>Use HTTPS in production environments</li>
+<li>Validate all user inputs</li>
+</ul>
+<h3 id="2-user-experience">2. User Experience</h3>
+<ul>
+<li>Ensure fast MiniApp loading speeds</li>
+<li>Provide clear user interfaces</li>
+<li>Handle network errors and exceptions</li>
+</ul>
+<h3 id="3-development-recommendations">3. Development Recommendations</h3>
+<ul>
+<li>Use the official SDK for the best development experience</li>
+<li>Implement appropriate error handling and retry mechanisms</li>
+<li>Consider implementing caching to improve performance</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="q-how-long-does-it-take-for-approval-after-registration">Q: How long does it take for approval after registration?</h3>
+<p>A: The approval process usually takes 1-3 business days, but the actual time may vary depending on the application volume.</p>
+<h3 id="q-why-cant-users-open-my-miniapp">Q: Why can't users open my MiniApp?</h3>
+<p>A: Please check the following:
+1. Ensure the URL domain matches the domain configured during registration
+2. Confirm your application has been approved
+3. Check if the server is running normally</p>
+<h3 id="q-how-do-i-update-miniapp-information">Q: How do I update MiniApp information?</h3>
+<p>A: You can update your application information on the Token management page.</p>
+<h2 id="support">Support</h2>
+<p>If you encounter issues during usage, you can get help through the following methods:
+- Check the official documentation
+- Contact the technical support team</p>
+<hr />
+<p>With this tutorial, you should now be able to successfully use the MiniApp platform in Sense Space. Start building your first MiniApp!</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../5_special_tags/" class="btn btn-neutral float-left" title="Special Tags"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../7_payment/" class="btn btn-neutral float-right" title="Payment">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../5_special_tags/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../7_payment/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

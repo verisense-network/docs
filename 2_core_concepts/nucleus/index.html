@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Nucleus - Verisense Documents</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Nucleus";
+        var mkdocs_page_input_path = "2_core_concepts/nucleus.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Verisense Documents
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../1_introduction/">Introduction</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core Concepts</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Nucleus</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#reverse-gas-mode">Reverse Gas Mode</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#feature-rich-sdk">Feature-Rich SDK</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lifecycle">Lifecycle</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#indexer">Indexer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#online-demo-aitonomy">Online Demo: Aitonomy</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../monadring/">Monadring</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/1_setup/">1. Setup Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/2_run_a_node/">2. Run a Local Node</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/3_creating_a_nucleus/">3. Create a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/4_deploying_a_nucleus/">4. Deploy a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/5_interacting_with_a_nucleus/">5. Interact with a Nucleus</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Nucleus Features</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/kv_storage/">KV Storage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/timers/">Timers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/http_requests/">HTTP Requests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/tss/">Threshold Signatures (TSS)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SenseSpace</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/1_introduction/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/2_a2a_integration/">A2A Integration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/3_a2a_conventions/">A2A Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/4_content_rendering/">Content Rendering</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/5_special_tags/">Special Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/6_miniapps/">MiniApps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/7_payment/">Payment</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../7_tutorials/video_course/">Video Course</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../7_tutorials/decentralized_forum/">Decentralized Forum Demo</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Deep Dives</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Blockchain</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >FHE</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/">Introduction</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/FHE_basic/">FHE Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/Game_Theory_in_Blockchain/">Game Theory</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/Threshold_key_sharing/">Threshold Key Sharing</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/FHE_for_Verisense/">FHE for Verisense</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Verisense Documents</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Core Concepts</li>
+      <li class="breadcrumb-item active">Nucleus</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="nucleus">Nucleus</h1>
+<p>In Verisense, a Nucleus represents a decentralized application running within a subnet. This section delves into the capabilities of a Nucleus, which is compiled into WebAssembly (WASM) bytecode, allowing for efficient execution within the Verisense framework. As previously mentioned in the Introduction, decentralized applications should operate within a cost-effective decentralized environment. In Verisense, the degree of decentralization, determined by the number of nodes securing a Nucleus, is customizable by developers to align with the application’s security needs. The process of achieving consensus among multiple nodes is discussed in detail in the "Monadring" section. Here, we will explore the specific capabilities that Verisense provides for Nucleus applications.</p>
+<h2 id="reverse-gas-mode">Reverse Gas Mode</h2>
+<p>Traditional blockchain systems typically employ a "pay-to-write" model, where the actor modifying the ledger incurs a cost (e.g., deploying contracts, changing contract states). This model has long posed a barrier for broad user adoption beyond the realm of Web3 enthusiasts. Verisense innovates with a reverse gas mode, where the platform charges the publisher of the Nucleus for usage. This pricing model resembles that of cloud service providers like AWS. By default, users can interact with a Nucleus (both reads and writes) free of charge, unless the developer explicitly chooses otherwise. This setup aligns more closely with traditional web applications, where certain API calls may require user authentication or payment, while others remain freely accessible.</p>
+<h2 id="feature-rich-sdk">Feature-Rich SDK</h2>
+<p>Most blockchain systems primarily offer two functionalities: key-value database read/write operations and signature verification. While smart contract virtual machines introduce Turing-complete development capabilities, the user experience often falls short compared to equivalent Web2 applications. Verisense aims to bridge this gap by offering a robust SDK for Nucleus development, featuring capabilities rarely found in other blockchains:</p>
+<ul>
+<li>
+<p><strong>Proactive Network Requests</strong>: Nucleus can autonomously initiate network requests, enabling dynamic interactions with external data sources and systems.</p>
+</li>
+<li>
+<p><strong>Timers</strong>: Developers can set timers within a Nucleus to trigger events or operations at scheduled intervals, enhancing application functionality and automation.</p>
+</li>
+<li>
+<p><strong>Multitype Public Key Access and Signature Functions</strong>: Nucleus can obtain various public key types and execute functions to sign any data.</p>
+</li>
+</ul>
+<p>The picture below shows some use cases of Nucleus.</p>
+<p><img alt="" src="https://raw.githubusercontent.com/verisense-network/docs/refs/heads/master/assets/usage.png" /></p>
+<h2 id="lifecycle">Lifecycle</h2>
+<p>The lifecycle of a Nucleus in Verisense encompasses several distinct stages, from creation through operation and potential decommissioning.</p>
+<ol>
+<li><strong>Creation</strong>
+The creation of a Nucleus is initiated through a legitimate transaction on the Verisense Hostnet. Developers can utilize the <code>vrx</code> command-line tool to facilitate this process. To install the <code>vrx</code> tool, use the following command:</li>
+</ol>
+<pre><code>cargo install --git https://github.com/verisense-network/vrs-cli.git
+</code></pre>
+<p>Note: Verisense is subject to rapid development, hence frequent updates may be required for <code>vrx</code>. Please refer to the Developer Guides for detailed instructions.</p>
+<ol>
+<li><strong>WASM Update</strong></li>
+</ol>
+<p>In Verisense, the code of a Nucleus is an integral part of its state. This unification implies that there is no distinction between the initial deployment of code and subsequent updates. The initial deployment of a Nucleus’s WebAssembly (WASM) code is logged as the zeroth event in the Nucleus’s lifecycle.</p>
+<ol>
+<li><strong>Recovery</strong></li>
+</ol>
+<p>Subnet member nodes assigned to a Nucleus initiate an additional WASM virtual machine (different from the Verisense Hostnet) dedicated to operating the Nucleus. These nodes expose the Nucleus's interfaces via an RPC endpoint. Verisense implements a sophisticated billing model that tracks charges based on the following activities:</p>
+<ul>
+<li>Storage usage</li>
+<li>Data write requests</li>
+<li>Invocation of system functions</li>
+</ul>
+<p>Each time the state root of a Nucleus is synchronized with the Hostnet, the corresponding account address of the Nucleus is automatically debited with the accrued costs.</p>
+<p>Should the balance of a Nucleus's account fall below a predetermined threshold, Verisense will cease to process requests associated with the Nucleus until additional funds are deposited. This mechanism ensures that network resources are allocated efficiently and that the operation of Nucleuses remains financially sustainable.</p>
+<h2 id="indexer">Indexer</h2>
+<p>In blockchain networks, maintaining consensus requires that state updates are processed with deterministic time complexity. Consequently, blockchain storage is typically restricted to key-value (KV) databases, where queries and modifications have predictable time complexity. Verisense follows this same principle, with each Nucleus possessing its own isolated storage space implemented using RocksDB.</p>
+<p>However, to enable advanced querying capabilities, an additional component akin to a blockchain explorer is often necessary. In the context of a Nucleus, such a component is referred to as an "Indexer," designed to facilitate complex business information queries. Unlike blockchain explorers, which serve the entire network, the Indexer for a Nucleus is a specialized off-chain component tailored by the developer for specific use cases within their application.</p>
+<p>The implementation of an Indexer is at the discretion of the Nucleus developer, allowing for flexibility and adaptability to various business requirements. Developers can leverage a range of technologies to build their Indexers, including:</p>
+<ul>
+<li>Traditional relational databases</li>
+<li>Full-text search engines</li>
+<li>Services like AWS serverless architectures</li>
+</ul>
+<p>This flexibility enables developers to optimize data indexing and querying based on the particular needs of their application.</p>
+<h2 id="online-demo-aitonomy">Online Demo: Aitonomy</h2>
+<p>This nucleus demonstrates the abilities of Verisense including bridgeless connection with external blockchains using TSS and AI integration using networking requests.</p>
+<ul>
+<li>
+<p><a href="https://www.aitonomy.world">Aitonomy: The first AI-driven decentrailized forum for tokenizing communities</a></p>
+</li>
+<li>
+<p><a href="https://x.com/veri_sense/status/1901844739378606523?s=46">Video on X</a></p>
+</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../1_introduction/" class="btn btn-neutral float-left" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../monadring/" class="btn btn-neutral float-right" title="Monadring">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../1_introduction/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../monadring/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

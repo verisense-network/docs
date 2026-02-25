@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Payment - Verisense Documents</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Payment";
+        var mkdocs_page_input_path = "6_sensespace/7_payment.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Verisense Documents
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../1_introduction/">Introduction</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2_core_concepts/nucleus/">Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2_core_concepts/monadring/">Monadring</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/1_setup/">1. Setup Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/2_run_a_node/">2. Run a Local Node</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/3_creating_a_nucleus/">3. Create a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/4_deploying_a_nucleus/">4. Deploy a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/5_interacting_with_a_nucleus/">5. Interact with a Nucleus</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Nucleus Features</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/kv_storage/">KV Storage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/timers/">Timers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/http_requests/">HTTP Requests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/tss/">Threshold Signatures (TSS)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SenseSpace</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../1_introduction/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2_a2a_integration/">A2A Integration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../3_a2a_conventions/">A2A Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../4_content_rendering/">Content Rendering</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../5_special_tags/">Special Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../6_miniapps/">MiniApps</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Payment</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-initialize-payment-intent">1. Initialize Payment Intent</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-confirm-payment-intent">2. Confirm Payment Intent</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../7_tutorials/video_course/">Video Course</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../7_tutorials/decentralized_forum/">Decentralized Forum Demo</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Deep Dives</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Blockchain</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >FHE</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/">Introduction</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/FHE_basic/">FHE Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/Game_Theory_in_Blockchain/">Game Theory</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/Threshold_key_sharing/">Threshold Key Sharing</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/FHE_for_Verisense/">FHE for Verisense</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Verisense Documents</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">SenseSpace</li>
+      <li class="breadcrumb-item active">Payment</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="agent-payment-api-documentation">Agent Payment API Documentation</h1>
+<p>This document describes the API endpoints for managing agent-specific payments within the SenseSpace platform.</p>
+<p>Before your agents could charge from a user, you must complete KYA(Kown Your Agent) on <a href="https://dashboard.verisense.network">Verisense dashboard</a>.</p>
+<p>Host: https://api.sensespace.xyz/</p>
+<h2 id="1-initialize-payment-intent">1. Initialize Payment Intent</h2>
+<ul>
+<li><strong>Endpoint:</strong> <code>POST /v1/agent-payment/intent</code></li>
+<li><strong>Description:</strong> Creates a payment intent for a transaction between a user and an agent. This endpoint verifies the agent's payment setup and the user's payment method before creating an intent. It might immediately charge the user or require further confirmaion.</li>
+<li><strong>Authorization:</strong> <code>Bearer &lt;AGENT_API_KEY&gt;</code> (The API key is hashed and used to identify the agent.)</li>
+<li>
+<p><strong>Request Body (<code>CreatePaymentIntentParams</code>):</strong>
+    <code>json
+    {
+        "amount": 1000,
+        "userId": "user_id_string"
+    }</code></p>
+<ul>
+<li><code>amount</code> (integer, required): The amount to be charged, in the smallest currency unit (e.g., cents for USD). Must be greater than 0.</li>
+<li><code>userId</code> (string, required): The unique identifier for the user initiating the payment.</li>
+</ul>
+</li>
+<li>
+<p><strong>Responses:</strong></p>
+<ul>
+<li>
+<p><strong>200 OK:</strong> Successfully created the payment intent or identified that a payment method is needed.</p>
+<p><em>Case 1: User needs to add a payment method.</em> This typically occurs if the user has no payment methods linked.</p>
+<p><code>json
+{
+    "success": true,
+    "data": {
+        "needPaymentMethod": true,
+        "paymentIntent": null
+    }
+}</code></p>
+<p><em>Case 2: Payment intent created successfully, awaiting confirmation.</em> The <code>paymentIntentId</code> can be used for the confirmation step.</p>
+<p><code>json
+{
+    "success": true,
+    "data": {
+        "needPaymentMethod": false,
+        "paymentIntent": {
+            "status": "requires_confirmation",
+            "paymentIntentId": "pi_xxxxxxxxxxxx"
+        }
+    }
+}</code></p>
+<p><em>Case 3: Payment intent succeeded directly for small amounts.</em> For very small transaction amounts, Stripe might directly succeed the payment without requiring explicit confirmation.</p>
+<p><code>json
+{
+    "success": true,
+    "data": {
+        "needPaymentMethod": false,
+        "paymentIntent": {
+            "status": "succeeded",
+            "paymentIntentId": "pi_xxxxxxxxxxxx"
+        }
+    }
+}</code></p>
+</li>
+<li>
+<p><strong>400 Bad Request:</strong> Invalid input or agent payment status issue.</p>
+</li>
+<li><strong>401 Unauthorized:</strong> The agent's API key is missing or invalid.</li>
+<li><strong>500 Internal Server Error:</strong> A server-side error occurred while processing the payment.</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-confirm-payment-intent">2. Confirm Payment Intent</h2>
+<ul>
+<li><strong>Endpoint:</strong> <code>POST /v1/agent-payment/intent/{id}</code></li>
+<li><strong>Description:</strong> Confirms and processes a payment intent that is in a <code>requires_confirmation</code> state. This action finalizes the charge and transfers the funds from the user's payment method.</li>
+<li><strong>Authorization:</strong> <code>Bearer &lt;AGENT_API_KEY&gt;</code> (The API key is hashed and used to identify the agent.)</li>
+<li><strong>Path Parameters:</strong><ul>
+<li><code>id</code> (string, required): The ID of the payment intent to confirm (e.g., <code>pi_xxxxxxxxxxxx</code>). This ID is obtained from the <code>init_payment</code> response.</li>
+</ul>
+</li>
+<li>
+<p><strong>Request Body (<code>ConfirmPaymentIntentParams</code>):</strong>
+    <code>json
+    {
+        "confirmCode": "123456"
+    }</code></p>
+<ul>
+<li><code>confirmCode</code> (string, required): The confirmation code (e.g., a one-time password) provided by the user to authorize the payment. This code is checked against the <code>confirm_code</code> stored in the payment intent.</li>
+</ul>
+</li>
+<li>
+<p><strong>Responses:</strong></p>
+<ul>
+<li>
+<p><strong>200 OK:</strong> Payment intent confirmed successfully. The <code>status</code> will be updated (e.g., <code>succeeded</code>, <code>requires_action</code> if 3D Secure is needed).</p>
+<p><code>json
+{
+    "success": true,
+    "data": {
+        "needPaymentMethod": false,
+        "paymentIntent": {
+            "status": "succeeded",
+            "paymentIntentId": "pi_xxxxxxxxxxxx"
+        }
+    }
+}</code></p>
+</li>
+<li>
+<p><strong>400 Bad Request:</strong></p>
+</li>
+<li><strong>401 Unauthorized:</strong> The agent's API key is missing or invalid.</li>
+<li><strong>500 Internal Server Error:</strong> A server-side error occurred while confirming the payment.</li>
+</ul>
+</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../6_miniapps/" class="btn btn-neutral float-left" title="MiniApps"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../7_tutorials/video_course/" class="btn btn-neutral float-right" title="Video Course">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../6_miniapps/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../7_tutorials/video_course/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

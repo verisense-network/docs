@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Threshold Signatures (TSS) - Verisense Documents</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Threshold Signatures (TSS)";
+        var mkdocs_page_input_path = "4_nucleus_features/tss.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Verisense Documents
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../1_introduction/">Introduction</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2_core_concepts/nucleus/">Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2_core_concepts/monadring/">Monadring</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/1_setup/">1. Setup Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/2_run_a_node/">2. Run a Local Node</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/3_creating_a_nucleus/">3. Create a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/4_deploying_a_nucleus/">4. Deploy a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/5_interacting_with_a_nucleus/">5. Interact with a Nucleus</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Nucleus Features</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../kv_storage/">KV Storage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../timers/">Timers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../http_requests/">HTTP Requests</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Threshold Signatures (TSS)</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-threshold-signature-scheme">What is Threshold Signature Scheme?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tss-use-cases-in-verisense">TSS Use Cases in Verisense</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#code-examples">Code Examples</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#retrieve-tss-public-key">Retrieve TSS Public Key</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generate-tss-signature">Generate TSS Signature</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#supported-signature-algorithms">Supported Signature Algorithms</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example-2-of-3-signing-process">Example: 2-of-3 Signing Process</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SenseSpace</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/1_introduction/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/2_a2a_integration/">A2A Integration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/3_a2a_conventions/">A2A Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/4_content_rendering/">Content Rendering</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/5_special_tags/">Special Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/6_miniapps/">MiniApps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6_sensespace/7_payment/">Payment</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../7_tutorials/video_course/">Video Course</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../7_tutorials/decentralized_forum/">Decentralized Forum Demo</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Deep Dives</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Blockchain</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >FHE</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/">Introduction</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/FHE_basic/">FHE Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/Game_Theory_in_Blockchain/">Game Theory</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/Threshold_key_sharing/">Threshold Key Sharing</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/FHE_for_Verisense/">FHE for Verisense</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Verisense Documents</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Nucleus Features</li>
+      <li class="breadcrumb-item active">Threshold Signatures (TSS)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="threshold-signature-scheme-tss">Threshold Signature Scheme (TSS)</h2>
+<h3 id="what-is-threshold-signature-scheme">What is Threshold Signature Scheme?</h3>
+<p>In traditional signature schemes, the private signing key is usually held by a single entity. Once this private key is compromised, the entire system's security is broken. In Threshold Signature Scheme (TSS), the private key is split into multiple shares and distributed among multiple participants. No single participant can reconstruct the full private key alone.</p>
+<p>TSS allows us to set a threshold. For example:</p>
+<ul>
+<li>In a 2-of-3 TSS, three participants hold key shares. Any two participants can jointly generate a valid signature, but no single participant can sign alone.</li>
+</ul>
+<p>This greatly improves security and eliminates single points of failure.</p>
+<h3 id="tss-use-cases-in-verisense">TSS Use Cases in Verisense</h3>
+<p>On the Verisense platform, TSS is mainly used for:</p>
+<ul>
+<li>Cross-chain bridge custody: ensuring secure multi-party control over cross-chain assets.</li>
+<li>Vault locking: for example, in multi-party governance or multi-signature wallets, ensuring that sensitive operations require multiple parties to jointly authorize.</li>
+<li>Monadring Consensus Algorithm.</li>
+</ul>
+<hr />
+<h3 id="code-examples">Code Examples</h3>
+<p>The Verisense SDK provides out-of-the-box support for TSS. Below are examples of how to obtain TSS public keys and initiate signing:</p>
+<h4 id="retrieve-tss-public-key">Retrieve TSS Public Key</h4>
+<p>Obtaining a public key is usually for generating transfer addresses or on-chain address binding:</p>
+<pre><code class="language-rust">use hex;
+use vrs_core_sdk::{get, tss::tss_get_public_key, tss::CryptoType};
+
+#[get]
+pub fn get_public_key(crypto_type: u8, tweak: String) -&gt; Result&lt;String, String&gt; {
+    let result =
+        tss_get_public_key(CryptoType::try_from(crypto_type)?, tweak).map_err(|e| e.to_string())?;
+    Ok(hex::encode(result))
+}
+</code></pre>
+<ul>
+<li><code>crypto_type</code> specifies the signature algorithm type.</li>
+<li><code>tweak</code> is used to derive a child public key based on the master key share. Different tweaks generate different deterministic child keys under the same master key share.</li>
+</ul>
+<h4 id="generate-tss-signature">Generate TSS Signature</h4>
+<p>In actual transfer or authorization scenarios, the system can initiate a TSS signing request:</p>
+<pre><code class="language-rust">use hex;
+use vrs_core_sdk::{get, tss::tss_sign, tss::CryptoType};
+
+#[get]
+pub fn sign(crypto_type: u8, tweak: String, message: String) -&gt; Result&lt;String, String&gt; {
+    let result =
+        tss_sign(CryptoType::try_from(crypto_type)?, tweak, message).map_err(|e| e.to_string())?;
+    Ok(hex::encode(result))
+}
+</code></pre>
+<ul>
+<li><code>message</code> is the content to be signed (usually a hash value).</li>
+<li>The return value is the signature result encoded in hex.</li>
+</ul>
+<h4 id="supported-signature-algorithms">Supported Signature Algorithms</h4>
+<p>Verisense currently supports the following signature algorithms:</p>
+<pre><code class="language-rust">#[repr(u8)]
+#[derive(Encode, Decode)]
+pub enum CryptoType {
+    P256 = 0,
+    Ed25519 = 1,
+    Secp256k1 = 2,
+    Secp256k1Tr = 3,
+    Ed448 = 4,
+    Ristretto255 = 5,
+    EcdsaSecp256k1 = 6,
+}
+</code></pre>
+<ul>
+<li><code>EcdsaSecp256k1</code> is used for ETH/BSC.</li>
+<li>The rest without the Ecdsa prefix (<code>Ed25519</code>, <code>Ristretto255</code>, <code>Secp256k1</code>, <code>Secp256k1Tr</code>, <code>P256</code>, <code>Ed448</code>) use Schnorr signatures.</li>
+</ul>
+<p>Schnorr signature schemes provide better aggregation properties and security in multi-party signature (MPC/TSS) scenarios, making them ideal for high-performance and decentralized use cases.</p>
+<hr />
+<h3 id="example-2-of-3-signing-process">Example: 2-of-3 Signing Process</h3>
+<p>Suppose we have Alice, Bob, and Charlie forming a 2-of-3 TSS group:</p>
+<ol>
+<li>During system initialization, each of the three participants receives a private key share.</li>
+<li>When a signature is needed, Alice and Bob collaborate through secure channels to generate a valid signature.</li>
+<li>Even if Charlie is offline, Alice and Bob can still successfully generate the signature.</li>
+<li>No single participant (e.g., only Alice) can generate the signature alone.</li>
+</ol>
+<p>This mechanism ensures both the security and flexibility of asset control, making it very suitable for decentralized custody, cross-chain bridges, DAO governance, and other multi-party control scenarios.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../http_requests/" class="btn btn-neutral float-left" title="HTTP Requests"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../6_sensespace/1_introduction/" class="btn btn-neutral float-right" title="Introduction">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../http_requests/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../6_sensespace/1_introduction/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

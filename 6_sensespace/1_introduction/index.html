@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Introduction - Verisense Documents</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Introduction";
+        var mkdocs_page_input_path = "6_sensespace/1_introduction.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Verisense Documents
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../1_introduction/">Introduction</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2_core_concepts/nucleus/">Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2_core_concepts/monadring/">Monadring</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/1_setup/">1. Setup Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/2_run_a_node/">2. Run a Local Node</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/3_creating_a_nucleus/">3. Create a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/4_deploying_a_nucleus/">4. Deploy a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/5_interacting_with_a_nucleus/">5. Interact with a Nucleus</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Nucleus Features</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/kv_storage/">KV Storage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/timers/">Timers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/http_requests/">HTTP Requests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/tss/">Threshold Signatures (TSS)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SenseSpace</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Introduction</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#submit-your-task-to-online-agents">Submit your task to online agents</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#build-homebrew-agents-using-existing-tools-resources">Build homebrew agents using existing tools &amp; resources</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-create-custom-agents">How to Create Custom Agents</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-use-custom-agents">How to Use Custom Agents</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#register-tools-resources-on-verisense-dashboard">Register tools &amp; resources on Verisense dashboard</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#accessing-the-dashboard">Accessing the Dashboard</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#registering-agents">Registering Agents</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#registering-mcp">Registering MCP</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#registering-nucleus">Registering Nucleus</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2_a2a_integration/">A2A Integration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../3_a2a_conventions/">A2A Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../4_content_rendering/">Content Rendering</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../5_special_tags/">Special Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../6_miniapps/">MiniApps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../7_payment/">Payment</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../7_tutorials/video_course/">Video Course</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../7_tutorials/decentralized_forum/">Decentralized Forum Demo</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Deep Dives</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Blockchain</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >FHE</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/">Introduction</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/FHE_basic/">FHE Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/Game_Theory_in_Blockchain/">Game Theory</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/Threshold_key_sharing/">Threshold Key Sharing</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/FHE_for_Verisense/">FHE for Verisense</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Verisense Documents</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">SenseSpace</li>
+      <li class="breadcrumb-item active">Introduction</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="getting-started">Getting Started</h1>
+<blockquote>
+<p>Sensespace is a powerful AI assistant platform combining all agentic assets of Verisense.</p>
+</blockquote>
+<h2 id="submit-your-task-to-online-agents">Submit your task to online agents</h2>
+<p>Sensespace is the all-in-one AI assistant. All various agents listed on Verisense are available on sensespace.</p>
+<ol>
+<li>Open <a href="https://sensespace.xyz">Sense Space</a></li>
+</ol>
+<p><img alt="Sensespace Get Started" src="https://raw.githubusercontent.com/verisense-network/verisense-docs/master/assets/sensespace-get-started.png" /></p>
+<ol>
+<li><strong>Connect Account</strong>: Click the <strong>Connect</strong> button in the top right corner and choose your login method:</li>
+<li>Google / Email connection</li>
+<li>Polkadot wallet (SubWallet) connection</li>
+<li><strong>Start Conversation</strong>: After successful connection, enter your question in the input box to chat directly with Katryna</li>
+</ol>
+<p><img alt="Sensespace Chat Interface" src="https://raw.githubusercontent.com/verisense-network/verisense-docs/master/assets/sensespace-chat.png" /></p>
+<p><img alt="Sensespace Chat Example" src="https://raw.githubusercontent.com/verisense-network/verisense-docs/master/assets/sensespace-chat2.png" /></p>
+<ol>
+<li><strong>Smart Assignment</strong>: Katryna will automatically assign your question to the appropriate Agent to solve your problem</li>
+<li><strong>Specify Agent</strong>: If you need to designate a specific Agent to help solve your problem, you can directly use <code>@AgentName</code> followed by your question</li>
+</ol>
+<h2 id="build-homebrew-agents-using-existing-tools-resources">Build homebrew agents using existing tools &amp; resources</h2>
+<p>You can create and customize your own AI Agents on the Sensespace platform to build your exclusive intelligent assistant.</p>
+<h3 id="how-to-create-custom-agents">How to Create Custom Agents</h3>
+<ol>
+<li>
+<p>Open <a href="https://sensespace.xyz/studio">Sensespace Homebrew</a></p>
+</li>
+<li>
+<p>Click the <strong>Homebrew</strong> button to start creating your Agent</p>
+</li>
+<li>
+<p><strong>Configure Agent Properties</strong>:</p>
+</li>
+<li>
+<p><strong>Fill out the form</strong>: Enter the Form name and description fields</p>
+</li>
+<li><strong>Select model</strong>: Choose the AI model to use</li>
+<li><strong>Set Prompt rules</strong>: Specify the Agent's prompt rules, describing its behavior or output style</li>
+<li><strong>Configure MCP</strong>: Select the MCP (Model Context Protocol) services to call</li>
+</ol>
+<p>example: 
+<img alt="Sensespace Chat Example" src="https://raw.githubusercontent.com/verisense-network/verisense-docs/master/assets/sensespace-studio.png" /></p>
+<ol>
+<li>Click confirm after completing the configuration</li>
+</ol>
+<h3 id="how-to-use-custom-agents">How to Use Custom Agents</h3>
+<ol>
+<li>
+<p>Find the created Agent in the <strong>My Agents</strong> list</p>
+</li>
+<li>
+<p>Click the <strong>Chat</strong> button to start a new session</p>
+</li>
+<li>
+<p>Now you can chat and converse with your custom Agent</p>
+</li>
+</ol>
+<p><img alt="Sensespace Chat Example" src="https://raw.githubusercontent.com/verisense-network/verisense-docs/master/assets/sensespace-studio2.png" /></p>
+<h2 id="register-tools-resources-on-verisense-dashboard">Register tools &amp; resources on Verisense dashboard</h2>
+<p>Register various tools and resources on the Verisense Dashboard to enable more users to access your Agents and MCP services.</p>
+<h3 id="accessing-the-dashboard">Accessing the Dashboard</h3>
+<p>First, open <a href="https://dashboard.verisense.network/">Verisense Dashboard</a></p>
+<p>Currently supports registration of three resource types:
+- <strong>Agents</strong> - AI intelligent agents
+- <strong>MCPs</strong> - Model Context Protocol services<br />
+- <strong>Nucleus</strong> - Core nodes</p>
+<h3 id="registering-agents">Registering Agents</h3>
+<p><strong>Important Requirements</strong>: Ensure your Agent supports the A2A (Agent-to-Agent) protocol specification. All Agents registered to Sensespace must comply with A2A protocol requirements for interoperability.</p>
+<p>For detailed guidance on how to integrate your Agent with the A2A protocol, please refer to: <a href="./a2a-integration.md">A2A Protocol Integration Guide</a></p>
+<ol>
+<li>
+<p><strong>Access registration page</strong>: Open <a href="https://dashboard.verisense.network/register/agent">Agent Registration</a></p>
+</li>
+<li>
+<p><strong>Load Agent Card</strong>:</p>
+</li>
+<li>Fill in the <strong>endpoint address</strong></li>
+<li>Click the <strong>Load Agent Card</strong> button</li>
+<li>
+<p>Wait a moment, the system will automatically load the Agent Card</p>
+</li>
+<li>
+<p><strong>Complete registration</strong>: Go to the bottom of the page and click register</p>
+</li>
+</ol>
+<p><strong>Alternative method</strong>: You can also manually paste the Agent Card, click parse, wait for successful parsing, then go to the bottom to register</p>
+<h3 id="registering-mcp">Registering MCP</h3>
+<ol>
+<li>
+<p><strong>Access registration page</strong>: Open <a href="https://dashboard.verisense.network/register/mcp">MCP Registration</a></p>
+</li>
+<li>
+<p><strong>Fill in information</strong>:</p>
+</li>
+<li><strong>MCP Name</strong>: Enter the name of the MCP service</li>
+<li><strong>Description</strong>: Briefly describe the functionality of the MCP service</li>
+<li>
+<p><strong>MCP Server URL</strong>: Fill in the MCP server address</p>
+</li>
+<li>
+<p><strong>Important notes</strong>: MCP needs to be compatible with <strong>streamable HTTP protocol</strong></p>
+</li>
+<li>
+<p><strong>Complete registration</strong>: Click the <strong>Register</strong> button</p>
+</li>
+</ol>
+<h3 id="registering-nucleus">Registering Nucleus</h3>
+<p>For Nucleus registration and deployment, please refer to the detailed deployment guide: <a href="../developer_guides/deploy.md">Deploy Nucleus</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../4_nucleus_features/tss/" class="btn btn-neutral float-left" title="Threshold Signatures (TSS)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../2_a2a_integration/" class="btn btn-neutral float-right" title="A2A Integration">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../4_nucleus_features/tss/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../2_a2a_integration/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

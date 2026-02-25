@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>A2A Integration - Verisense Documents</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "A2A Integration";
+        var mkdocs_page_input_path = "6_sensespace/2_a2a_integration.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Verisense Documents
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../1_introduction/">Introduction</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2_core_concepts/nucleus/">Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2_core_concepts/monadring/">Monadring</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/1_setup/">1. Setup Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/2_run_a_node/">2. Run a Local Node</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/3_creating_a_nucleus/">3. Create a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/4_deploying_a_nucleus/">4. Deploy a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/5_interacting_with_a_nucleus/">5. Interact with a Nucleus</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Nucleus Features</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/kv_storage/">KV Storage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/timers/">Timers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/http_requests/">HTTP Requests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/tss/">Threshold Signatures (TSS)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SenseSpace</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../1_introduction/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">A2A Integration</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-the-a2a-protocol">What is the A2A Protocol?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#relationship-between-a2a-and-mcp">Relationship between A2A and MCP</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#essential-integration-components">Essential Integration Components</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-install-a2a-sdk">1. Install A2A SDK</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-create-agent-executor">2. Create Agent Executor</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-implement-agent-streaming">3. Implement Agent Streaming</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#4-configure-agent-card">4. Configure Agent Card</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#5-start-a2a-server">5. Start A2A Server</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#integration-examples-with-different-frameworks">Integration Examples with Different Frameworks</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#langgraph-integration">LangGraph Integration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#crewai-integration">CrewAI Integration</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#testing-your-a2a-agent">Testing Your A2A Agent</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#testing-with-cli-client">Testing with CLI Client</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testing-with-direct-http">Testing with Direct HTTP</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deploy-to-sensespace">Deploy to Sensespace</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#reference-resources">Reference Resources</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#official-resources">Official Resources</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#code-examples">Code Examples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#learning-tutorials">Learning Tutorials</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../3_a2a_conventions/">A2A Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../4_content_rendering/">Content Rendering</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../5_special_tags/">Special Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../6_miniapps/">MiniApps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../7_payment/">Payment</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../7_tutorials/video_course/">Video Course</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../7_tutorials/decentralized_forum/">Decentralized Forum Demo</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Deep Dives</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Blockchain</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >FHE</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/">Introduction</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/FHE_basic/">FHE Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/Game_Theory_in_Blockchain/">Game Theory</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/Threshold_key_sharing/">Threshold Key Sharing</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/FHE_for_Verisense/">FHE for Verisense</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Verisense Documents</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">SenseSpace</li>
+      <li class="breadcrumb-item active">A2A Integration</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="agent2agent-a2a-protocol-integration-guide">Agent2Agent (A2A) Protocol Integration Guide</h1>
+<blockquote>
+<p>This guide explains how to integrate your Agent with the A2A protocol for interoperability with other Agents on the Sensespace platform.</p>
+</blockquote>
+<h2 id="what-is-the-a2a-protocol">What is the A2A Protocol?</h2>
+<p>The <a href="https://a2a-protocol.org/latest/">Agent2Agent (A2A) Protocol</a> is an open standard developed by Google and donated to the Linux Foundation designed to enable seamless communication and collaboration between AI agents. In a world where agents are built using diverse frameworks and by different vendors, A2A provides a common language, breaking down silos and fostering interoperability.</p>
+<p>For comprehensive documentation and specifications, visit the official <a href="https://a2a-protocol.org/latest/">A2A Protocol website</a>.</p>
+<h2 id="relationship-between-a2a-and-mcp">Relationship between A2A and MCP</h2>
+<p>A2A and <a href="https://modelcontextprotocol.io/">Model Context Protocol (MCP)</a> are complementary standards for building robust agentic applications:</p>
+<ul>
+<li><strong>MCP (Model Context Protocol)</strong>: Provides agent-to-tool communication, standardizing how an agent connects to its tools, APIs, and resources to get information</li>
+<li><strong>A2A (Agent2Agent Protocol)</strong>: Provides agent-to-agent communication, acting as a universal, decentralized standard that allows AI agents to interoperate, collaborate, and share discoveries</li>
+</ul>
+<p>A2A acts as the public internet that allows AI agents—including those using MCP or built with frameworks—to interoperate, collaborate, and share their findings.</p>
+<h2 id="essential-integration-components">Essential Integration Components</h2>
+<h3 id="1-install-a2a-sdk">1. Install A2A SDK</h3>
+<p>First, install the A2A SDK for your language:</p>
+<pre><code class="language-bash"># Python
+pip install a2a-python
+
+# JavaScript
+npm install a2a-js
+
+# Java
+# Refer to https://github.com/a2aproject/a2a-java
+
+# C#/.NET
+# Refer to https://github.com/a2aproject/a2a-dotnet
+
+# Go
+# Refer to https://github.com/a2aproject/a2a-go
+</code></pre>
+<h3 id="2-create-agent-executor">2. Create Agent Executor</h3>
+<p>Implement the <code>AgentExecutor</code> interface, which is the core component of the A2A protocol:</p>
+<pre><code class="language-python">from a2a.server.agent_execution import AgentExecutor
+from a2a.types import RequestContext, EventQueue
+
+class YourAgentExecutor(AgentExecutor):
+    &quot;&quot;&quot;Your Agent Implementation.&quot;&quot;&quot;
+
+    def __init__(self):
+        # Initialize your agent
+        self.agent = YourAgent()
+
+    async def execute(
+        self, 
+        context: RequestContext, 
+        event_queue: EventQueue
+    ) -&gt; None:
+        # Get user input
+        query = context.get_user_input()
+        task = context.current_task
+
+        # Process message and generate response
+        async for event in self.agent.stream(query):
+            if event['is_task_complete']:
+                # Send final result when task is complete
+                await event_queue.enqueue_event(
+                    TaskArtifactUpdateEvent(
+                        append=False,
+                        context_id=task.context_id,
+                        task_id=task.id,
+                        last_chunk=True,
+                        artifact=new_text_artifact(
+                            name='current_result',
+                            description='Agent response result.',
+                            text=event['content'],
+                        ),
+                    )
+                )
+                await event_queue.enqueue_event(
+                    TaskStatusUpdateEvent(
+                        status=TaskStatus(state=TaskState.completed),
+                        final=True,
+                        context_id=task.context_id,
+                        task_id=task.id,
+                    )
+                )
+            elif event['require_user_input']:
+                # When user input is required
+                await event_queue.enqueue_event(
+                    TaskStatusUpdateEvent(
+                        status=TaskStatus(
+                            state=TaskState.input_required,
+                            message=new_agent_text_message(
+                                event['content'],
+                                task.context_id,
+                                task.id,
+                            ),
+                        ),
+                        final=True,
+                        context_id=task.context_id,
+                        task_id=task.id,
+                    )
+                )
+            else:
+                # Status updates while work is in progress
+                await event_queue.enqueue_event(
+                    TaskStatusUpdateEvent(
+                        append=True,
+                        status=TaskStatus(
+                            state=TaskState.working,
+                            message=new_agent_text_message(
+                                event['content'],
+                                task.context_id,
+                                task.id,
+                            ),
+                        ),
+                        final=False,
+                        context_id=task.context_id,
+                        task_id=task.id,
+                    )
+                )
+
+    async def cancel(
+        self, context: RequestContext, event_queue: EventQueue
+    ) -&gt; None:
+        # Implement cancellation logic
+        pass
+</code></pre>
+<h3 id="3-implement-agent-streaming">3. Implement Agent Streaming</h3>
+<p>Your Agent needs to support streaming output, returning standardized event format:</p>
+<pre><code class="language-python">class YourAgent:
+    async def stream(self, query: str) -&gt; AsyncIterable[dict]:
+        &quot;&quot;&quot;Stream responses from your agent.&quot;&quot;&quot;
+
+        # Process query and generate response
+        for chunk in self.process_query(query):
+            yield {
+                'is_task_complete': False,  # Whether task is complete
+                'require_user_input': False,  # Whether user input is required
+                'content': chunk  # Response content
+            }
+
+        # Final response
+        yield {
+            'is_task_complete': True,
+            'require_user_input': False,
+            'content': 'Task completed successfully'
+        }
+</code></pre>
+<h3 id="4-configure-agent-card">4. Configure Agent Card</h3>
+<p>Create an Agent Card describing your Agent's capabilities and skills:</p>
+<pre><code class="language-python">from a2a.types import (
+    AgentCapabilities, 
+    AgentCard, 
+    AgentSkill
+)
+
+skill = AgentSkill(
+    id='your_agent_skill',
+    name='Your Agent Skill',
+    description='Description of what your agent can do',
+    tags=['tag1', 'tag2'],
+    examples=['Example query 1', 'Example query 2'],
+)
+
+agent_card = AgentCard(
+    name='Your Agent Name',
+    description='Description of your agent',
+    url='http://localhost:8080/',  # Agent service URL
+    version='1.0.0',
+    default_input_modes=['text'],
+    default_output_modes=['text'],
+    capabilities=AgentCapabilities(
+        streaming=True,  # Support streaming
+        input_modes=['text'],
+        output_modes=['text'],
+    ),
+    skills=[skill],
+)
+</code></pre>
+<h3 id="5-start-a2a-server">5. Start A2A Server</h3>
+<p>Finally, create and start the A2A server:</p>
+<pre><code class="language-python">import uvicorn
+from a2a.server.apps import A2AStarletteApplication
+from a2a.server.request_handlers.default_request_handler import DefaultRequestHandler
+from a2a.server.tasks.inmemory_task_store import InMemoryTaskStore
+
+def main():
+    # Create task store and request handler
+    task_store = InMemoryTaskStore()
+    request_handler = DefaultRequestHandler(
+        agent_executor=YourAgentExecutor(),
+        task_store=task_store,
+    )
+
+    # Create A2A application
+    server = A2AStarletteApplication(
+        agent_card=agent_card,
+        http_handler=request_handler
+    )
+
+    # Start server
+    uvicorn.run(
+        server.build(), 
+    uvicorn.run(
+        server.build(), 
+        host='0.0.0.0', 
+        port=8080
+    )
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+<h2 id="integration-examples-with-different-frameworks">Integration Examples with Different Frameworks</h2>
+<h3 id="langgraph-integration">LangGraph Integration</h3>
+<pre><code class="language-python">from langgraph.prebuilt import create_react_agent
+from langchain_openai import ChatOpenAI
+
+class LangGraphAgent:
+    def __init__(self):
+        self.model = ChatOpenAI(model=&quot;gpt-4&quot;)
+        self.agent_runnable = create_react_agent(
+            self.model,
+            tools=your_tools,
+            prompt=your_system_prompt,
+        )
+
+    async def stream(self, query: str, session_id: str):
+        config = {'configurable': {'thread_id': session_id}}
+        langgraph_input = {'messages': [('user', query)]}
+
+        async for chunk in self.agent_runnable.astream_events(
+            langgraph_input, config, version='v1'
+        ):
+            # Process LangGraph events and convert to A2A format
+            yield self.convert_to_a2a_format(chunk)
+</code></pre>
+<h3 id="crewai-integration">CrewAI Integration</h3>
+<pre><code class="language-python">from crewai import Agent, Task, Crew
+
+class CrewAIAgent:
+    def __init__(self):
+        self.agent = Agent(
+            role='Your Agent Role',
+            goal='Your Agent Goal',
+            backstory='Your Agent Backstory',
+        )
+
+    async def stream(self, query: str):
+        task = Task(
+            description=query,
+            agent=self.agent,
+        )
+
+        crew = Crew(
+            agents=[self.agent],
+            tasks=[task],
+        )
+
+        # Execute task and stream results
+        result = crew.kickoff()
+        yield {
+            'is_task_complete': True,
+            'require_user_input': False,
+            'content': str(result)
+        }
+</code></pre>
+<h2 id="testing-your-a2a-agent">Testing Your A2A Agent</h2>
+<h3 id="testing-with-cli-client">Testing with CLI Client</h3>
+<pre><code class="language-bash"># Install A2A client tools
+pip install a2a-python
+
+# Test your Agent
+python -m a2a.client --agent http://localhost:8080
+</code></pre>
+<h3 id="testing-with-direct-http">Testing with Direct HTTP</h3>
+<pre><code class="language-bash"># Get Agent Card
+curl -X POST http://localhost:8080 \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{}'
+
+# Send message
+curl -X POST http://localhost:8080 \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{
+    &quot;jsonrpc&quot;: &quot;2.0&quot;,
+    &quot;id&quot;: 1,
+    &quot;method&quot;: &quot;message/stream&quot;,
+    &quot;params&quot;: {
+      &quot;id&quot;: &quot;task-01&quot;,
+      &quot;sessionId&quot;: &quot;session-123&quot;,
+      &quot;acceptedOutputModes&quot;: [&quot;text&quot;],
+      &quot;message&quot;: {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;parts&quot;: [{
+          &quot;type&quot;: &quot;text&quot;,
+          &quot;text&quot;: &quot;Hello, how can you help me?&quot;
+        }]
+      }
+    }
+  }'
+</code></pre>
+<h2 id="deploy-to-sensespace">Deploy to Sensespace</h2>
+<p>Once your Agent complies with A2A protocol specifications, you can register it on the Sensespace platform:</p>
+<ol>
+<li>Deploy your Agent service to a publicly accessible address</li>
+<li>Ensure the Agent service runs on a publicly accessible port</li>
+<li>Register your Agent at <a href="https://dashboard.verisense.network/register/agent">Verisense Dashboard</a></li>
+<li>Enter the Agent's endpoint address and test the connection</li>
+</ol>
+<h2 id="reference-resources">Reference Resources</h2>
+<h3 id="official-resources">Official Resources</h3>
+<ul>
+<li><a href="https://a2a-protocol.org/latest/">A2A Protocol Official Documentation</a></li>
+<li><a href="https://github.com/a2aproject/a2a-python">A2A Python SDK</a></li>
+<li><a href="https://github.com/a2aproject/a2a-samples">A2A Sample Code Repository</a></li>
+</ul>
+<h3 id="code-examples">Code Examples</h3>
+<p>We strongly recommend referring to actual implementations in the official sample code repository:</p>
+<ul>
+<li><strong>Basic Example</strong>: <a href="https://github.com/a2aproject/a2a-samples/tree/main/samples/python/agents/a2a-mcp-without-framework">A2A Implementation without Framework</a></li>
+<li><strong>LangGraph Integration</strong>: <a href="https://github.com/a2aproject/a2a-samples/tree/main/samples/python/agents/airbnb_planner_multiagent">LangGraph A2A Agent</a></li>
+<li><strong>CrewAI Integration</strong>: <a href="https://github.com/a2aproject/a2a-samples/tree/main/samples/python/agents/crewai">CrewAI A2A Agent</a></li>
+<li><strong>AG2 Integration</strong>: <a href="https://github.com/a2aproject/a2a-samples/tree/main/samples/python/agents/ag2">AG2 A2A Agent</a></li>
+</ul>
+<h3 id="learning-tutorials">Learning Tutorials</h3>
+<ul>
+<li><a href="https://a2a-protocol.org/latest/tutorials/python/1-introduction/">A2A Python Tutorial</a></li>
+<li><a href="https://a2a-protocol.org/latest/specification/">Protocol Specification</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../1_introduction/" class="btn btn-neutral float-left" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../3_a2a_conventions/" class="btn btn-neutral float-right" title="A2A Conventions">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../1_introduction/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../3_a2a_conventions/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

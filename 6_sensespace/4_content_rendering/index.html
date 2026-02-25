@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Content Rendering - Verisense Documents</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Content Rendering";
+        var mkdocs_page_input_path = "6_sensespace/4_content_rendering.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Verisense Documents
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../1_introduction/">Introduction</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2_core_concepts/nucleus/">Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2_core_concepts/monadring/">Monadring</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/1_setup/">1. Setup Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/2_run_a_node/">2. Run a Local Node</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/3_creating_a_nucleus/">3. Create a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/4_deploying_a_nucleus/">4. Deploy a Nucleus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3_getting_started/5_interacting_with_a_nucleus/">5. Interact with a Nucleus</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Nucleus Features</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/kv_storage/">KV Storage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/timers/">Timers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/http_requests/">HTTP Requests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4_nucleus_features/tss/">Threshold Signatures (TSS)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SenseSpace</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../1_introduction/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2_a2a_integration/">A2A Integration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../3_a2a_conventions/">A2A Conventions</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Content Rendering</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#supported-rendering-formats">Supported Rendering Formats</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-markdown-standard-format">1. Markdown Standard Format</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-xml-card-renderingdeprecated-see-special-tags">2. XML Card Rendering(deprecated, see Special Tags)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#tool-card">Tool Card</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#miniapp-card">MiniApp Card</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#payment">Payment</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#subagent-delegation">Subagent Delegation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mixed-content-example">Mixed Content Example</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../5_special_tags/">Special Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../6_miniapps/">MiniApps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../7_payment/">Payment</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../7_tutorials/video_course/">Video Course</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../7_tutorials/decentralized_forum/">Decentralized Forum Demo</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Deep Dives</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Blockchain</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >FHE</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/">Introduction</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/FHE_basic/">FHE Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/Game_Theory_in_Blockchain/">Game Theory</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/Threshold_key_sharing/">Threshold Key Sharing</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../8_deep_dives/blockchain/fhe/FHE_for_Verisense/">FHE for Verisense</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Verisense Documents</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">SenseSpace</li>
+      <li class="breadcrumb-item active">Content Rendering</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="content-rendering">Content Rendering</h1>
+<p>Sense Space supports various content rendering formats to provide rich and interactive user experiences. This guide covers the supported rendering formats and how to use them effectively.</p>
+<h2 id="supported-rendering-formats">Supported Rendering Formats</h2>
+<h3 id="1-markdown-standard-format">1. Markdown Standard Format</h3>
+<p>The frontend supports standard Markdown formatting for text content. This includes all common Markdown elements such as:</p>
+<ul>
+<li><strong>Headings</strong> (<code>#</code>, <code>##</code>, <code>###</code>, etc.)</li>
+<li><strong>Text formatting</strong> (bold, italic, strikethrough)</li>
+<li><strong>Lists</strong> (ordered and unordered)</li>
+<li><strong>Links</strong> and <strong>images</strong></li>
+<li><strong>Code blocks</strong> and inline code</li>
+<li><strong>Tables</strong></li>
+<li><strong>Blockquotes</strong></li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-markdown"># Heading 1
+## Heading 2
+
+**Bold text** and *italic text*
+
+- List item 1
+- List item 2
+
+[Link text](https://example.com)
+
+`inline code` and:
+
+```code
+code block
+</code></pre>
+<h3 id="2-xml-card-renderingdeprecated-see-special-tags">2. XML Card Rendering(deprecated,  see <a href="../special_tags/">Special Tags</a>)</h3>
+<p>In addition to Markdown, SenseSpace supports special XML tags in the A2A <code>Message::TextPart</code> to support rich-featured interaction.</p>
+<h4 id="tool-card">Tool Card</h4>
+<p>The <code>&lt;tool&gt;</code> XML format displays function calls and their results in a card format:</p>
+<pre><code class="language-xml">&lt;tool&gt;
+    &lt;func&gt;call funcname&lt;/func&gt;
+    &lt;result&gt;func result&lt;/result&gt;
+&lt;/tool&gt;
+</code></pre>
+<p><strong>Usage Example:</strong></p>
+<pre><code class="language-xml">&lt;tool&gt;
+    &lt;func&gt;calculate sum&lt;/func&gt;
+    &lt;result&gt;The sum of 5 + 3 = 8&lt;/result&gt;
+&lt;/tool&gt;
+</code></pre>
+<p>This will render as an interactive card showing:
+- The function being called
+- The result of the function execution</p>
+<h4 id="miniapp-card">MiniApp Card</h4>
+<p>The <code>&lt;miniapp&gt;</code> XML format creates a card that allows users to open MiniApp applications:</p>
+<pre><code class="language-xml">&lt;miniapp&gt;
+    &lt;id&gt;app-identifier&lt;/id&gt;
+    &lt;url&gt;https://miniapp-domain.com/xxx&lt;/url&gt;
+&lt;/miniapp&gt;
+</code></pre>
+<p><strong>Usage Example:</strong></p>
+<pre><code class="language-xml">&lt;miniapp&gt;
+    &lt;id&gt;weather-app&lt;/id&gt;
+    &lt;url&gt;https://weather.sensespace.xyz/app&lt;/url&gt;
+&lt;/miniapp&gt;
+</code></pre>
+<p>This will render as a clickable card that opens the specified MiniApp.</p>
+<p>For detailed information about MiniApp development and integration, see the <a href="./miniapp.md">MiniApp Platform Tutorial</a>.</p>
+<h4 id="payment">Payment</h4>
+<p>The <code>&lt;payment&gt;</code> initiates a payment request from the user. This typically when an agent receives a response from <a href="./payment.md">Agent Payment API</a>.</p>
+<pre><code class="language-xml">&lt;payment&gt;
+  &lt;intent-id&gt;xxx&lt;/intent-id&gt;
+&lt;/payment&gt;
+</code></pre>
+<p>Once the user confirms this payment, it will send a message contains the <code>code</code> to the agent.</p>
+<h4 id="subagent-delegation">Subagent Delegation</h4>
+<p>When the main agent delegates a task to a specialist subagent, two tags are used in sequence.</p>
+<p><strong>Step 1 — announce the subagent call</strong> (emitted before the subagent runs):</p>
+<pre><code class="language-xml">&lt;subagent&gt;
+    &lt;id&gt;ask_office_specialist&lt;/id&gt;
+    &lt;name&gt;Office Specialist&lt;/name&gt;
+    &lt;logo&gt;https://example.com/office.png&lt;/logo&gt;
+&lt;/subagent&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>Unique identifier for the subagent tool call; must match the <code>id</code> attribute in the corresponding <code>&lt;subagent-result&gt;</code></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>Display name shown in the UI</td>
+</tr>
+<tr>
+<td><code>logo</code></td>
+<td>Avatar URL shown next to the subagent name (optional)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 2 — deliver the subagent result</strong> (emitted after the subagent finishes):</p>
+<pre><code class="language-xml">&lt;subagent-result id=&quot;ask_office_specialist&quot;&gt;
+The subagent's full response goes here. Supports Markdown and nested XML tags.
+&lt;/subagent-result&gt;
+</code></pre>
+<p>The <code>id</code> attribute must match the <code>&lt;id&gt;</code> value in the preceding <code>&lt;subagent&gt;</code> tag. The frontend will nest the result content inside the subagent card.</p>
+<p><strong>Full example — main agent calling two subagents sequentially:</strong></p>
+<pre><code>I'll search for flights first, then create the PPT.
+
+&lt;subagent&gt;
+    &lt;id&gt;ask_travel_planner&lt;/id&gt;
+    &lt;name&gt;Travel Planner&lt;/name&gt;
+    &lt;logo&gt;https://example.com/travel.png&lt;/logo&gt;
+&lt;/subagent&gt;
+
+&lt;subagent-result id=&quot;ask_travel_planner&quot;&gt;
+**Flight Results**: Shanghai → Tokyo, March 25–30, ~2,500–4,500 CNY.
+&lt;/subagent-result&gt;
+
+Got the itinerary. Generating your PPT now…
+
+&lt;subagent&gt;
+    &lt;id&gt;ask_office_specialist&lt;/id&gt;
+    &lt;name&gt;Office Specialist&lt;/name&gt;
+    &lt;logo&gt;https://example.com/office.png&lt;/logo&gt;
+&lt;/subagent&gt;
+
+&lt;subagent-result id=&quot;ask_office_specialist&quot;&gt;
+Your travel plan PPT is ready: [Download](https://storage.googleapis.com/...)
+&lt;/subagent-result&gt;
+</code></pre>
+<h3 id="mixed-content-example">Mixed Content Example</h3>
+<p>Here's an example combining Markdown with XML cards:</p>
+<p>```markdown</p>
+<h1 id="weather-analysis-report">Weather Analysis Report</h1>
+<p>Today's weather data has been processed successfully.</p>
+<p><tool>
+    <func>analyze weather data</func>
+    <result>Temperature: 22°C, Humidity: 65%, Conditions: Partly Cloudy</result>
+</tool></p>
+<p>For a detailed interactive forecast, you can use our weather application:</p>
+<p><miniapp>
+    <id>weather-forecast</id>
+    <url>https://weather.sensespace.xyz/forecast</url>
+</miniapp></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../3_a2a_conventions/" class="btn btn-neutral float-left" title="A2A Conventions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../5_special_tags/" class="btn btn-neutral float-right" title="Special Tags">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../3_a2a_conventions/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../5_special_tags/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
