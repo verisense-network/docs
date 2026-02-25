@@ -96,7 +96,65 @@ The `<payment>` initiates a payment request from the user. This typically when a
 
 Once the user confirms this payment, it will send a message contains the `code` to the agent.
 
-## Examples
+#### Subagent Delegation
+
+When the main agent delegates a task to a specialist subagent, two tags are used in sequence.
+
+**Step 1 — announce the subagent call** (emitted before the subagent runs):
+
+```xml
+<subagent>
+    <id>ask_office_specialist</id>
+    <name>Office Specialist</name>
+    <logo>https://example.com/office.png</logo>
+</subagent>
+```
+
+| Field  | Description |
+|--------|-------------|
+| `id`   | Unique identifier for the subagent tool call; must match the `id` attribute in the corresponding `<subagent-result>` |
+| `name` | Display name shown in the UI |
+| `logo` | Avatar URL shown next to the subagent name (optional) |
+
+**Step 2 — deliver the subagent result** (emitted after the subagent finishes):
+
+```xml
+<subagent-result id="ask_office_specialist">
+The subagent's full response goes here. Supports Markdown and nested XML tags.
+</subagent-result>
+```
+
+The `id` attribute must match the `<id>` value in the preceding `<subagent>` tag. The frontend will nest the result content inside the subagent card.
+
+**Full example — main agent calling two subagents sequentially:**
+
+```
+I'll search for flights first, then create the PPT.
+
+<subagent>
+    <id>ask_travel_planner</id>
+    <name>Travel Planner</name>
+    <logo>https://example.com/travel.png</logo>
+</subagent>
+
+<subagent-result id="ask_travel_planner">
+**Flight Results**: Shanghai → Tokyo, March 25–30, ~2,500–4,500 CNY.
+</subagent-result>
+
+Got the itinerary. Generating your PPT now…
+
+<subagent>
+    <id>ask_office_specialist</id>
+    <name>Office Specialist</name>
+    <logo>https://example.com/office.png</logo>
+</subagent>
+
+<subagent-result id="ask_office_specialist">
+Your travel plan PPT is ready: [Download](https://storage.googleapis.com/...)
+</subagent-result>
+```
+
+
 
 ### Mixed Content Example
 
